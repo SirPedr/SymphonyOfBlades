@@ -68,7 +68,9 @@ setTimeout(mostraTitulo, 2500);
 
 $(window).resize(function(){
   if(window.innerWidth <= 480 ){
-    containerAvatar.remove();
+    let previewAvatar = document.querySelector('#avatarFinal');
+
+    $(previewAvatar).remove();
   }
 });
 
