@@ -257,8 +257,7 @@ button:hover{
 /*ESTILIZAÇÃO DE CLASSES DA CRIAÇÃO DE AVATAR*/
 
 .imagensAvatar{
-  visibility: hidden;
-  position: absolute;
+  display: none;
 }
 
 .modelosBase{
