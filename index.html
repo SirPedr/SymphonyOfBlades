@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="imgs/ico.png">
+    <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="rpgestiloso/estilos.css">
+    <title>Symphony Of Blades</title>
+  </head>
+  <body>
+    <!-- Música Que É Usada de Fundo na Tela Principal -->
+    <audio id="musica_fundo_inicial" src="https://sirpedr.github.io/ArquivosAuxiliaresSymphony/LOTL_Menu.mp3" type="audio/mp3"></audio>
+
+  <!-- Nav Que Permite o Jogador Ver o Modal com as Informações e Habilitar/Desabilitar a Música -->
+    <nav id="controles">
+      <img src="imgs/somLigado.png" id = "opcaoSom" class="controlesImg">
+      <img src="imgs/informacao.png" id="opcaoInfo" class="controlesImg">
+    </nav>
+
+    <!-- O Modal, que contém informações sobre o criador do jogo e uma mini-lista de créditos -->
+    <section id="info" class = "invisivel">
+      <img src="imgs/fechar_info.png" id="fechar-info">
+      <h2>Tudo o Que Você Precisa (Ou Não) Saber</h2>
+      <h3>Quem está por trás de 'Symphony Of Blades'?</h3>
+      <p>Acho que sou eu...Ah, mas você não me conhece, é verdade. Me permita me apresentar: Eu sou Pedro Paulo, estudante do CEFET-MG, amante de RPG's e
+      futuro <del>Mestre Jedi</del> programador! Esse pequeno jogo faz parte de um trabalho de desenvolvimento de aplicações para a Web, e aqui está. :) <br>
+      </p>
+      <h3>Agradecimentos</h3>
+      <p>Listadas aqui pessoas que me ajudaram com a criação do projeto. Obrigado, amo vocês ♥️ :</p>
+      <ul>
+        <li>Flávio Coutinho</li>
+        <li>Daniel Hasan</li>
+        <li>Nicoly Dandara</li>
+        <li>Osmar Coelho</li>
+        <li>Rubens Victor</li>
+        <li>Vinícius Gabriel</li>
+        <li>João Gabriel</li>
+      </ul>
+      <p>Veja Também: <a href="https://www.dropbox.com/s/l0olpgrvj8fxgdn/Lore.pdf?dl=0" target="_blank">O Universo de Symphony Of Blades</a>
+    </section>
+
+    <!-- Div que engloba os elementos do título principal: o título em si e o botão de começar -->
+    <div id="titulo-menu" class = "invisivel">
+      <h1 id = "titulo-principal">Symphony Of Blades</h1>
+      <button id="comecarJogo">Começar</button>
+    </div>
+
+   <!-- 'Article' que contém a história pré-jogo, e é exibido quando o jogador clica no botão 'Começar' -->
+
+   <article id="historia-previa" class="invisivel">
+     <div id="conteudoHistoria">
+
+        <p>Bem-vindo a Hesteren! Uma terra vasta e manchada por milênios de guerras e crises catastróficas. Criada pelos deuses
+           ou pelas ações dos humanos, não é importante, pois esta com o passar do tempo foi deixada aos caprichos dos homens, Hesteren
+            guarda segredos, histórias e intrigas que podem dar às mãos de um aventureiro maltrapilho o destino de todo um mundo, ou, nas mãos
+             de um simples camponês, podem virar simples mitos e lendas.</p>
+             <br>
+        <p>Em uma grande cidade vivia um pequeno humano. Esse humano era criado por seus avós, que cuidavam de uma pequena taverna, que reunia todos
+        os tipos de criaturas imagináveis: outro humanos, elfos, orcs, etc. Vivia um vida tranquila, embora não tivesse muitas habilidades notáveis, ou
+        uma aparência invejável; era um humano comum, que trabalhava na taverna de sua família e vivia uma vida normal.
+        <br>
+        Certo dia, esse humano, que vivia na Cidade Porto, decidiu que estava cansado de sua vida simples e tranquila. As terras de Hesteren estavam em tempos calmos,
+        e sem guerras, o que sim, era bom, mas talvez as coisas fossem mais interessantes no passado. Foi então que esse humano decidiu abandonar seu pequeno mundo dentro
+        da taverna, chamada de 'Descanso do Viajante', e sair em uma viagem por toda a Hesteren, a fim de adquirir um conhecimento antes inalcançável e um significado para sua vida.
+        </p>
+        <br>
+        <p>
+          É assim que nossa jornada começa. Ele pega suas coisas, se despede de sua família, e parte, sem um rumo definido. Várias cidades e vilas ele visita, e, de fato, havia muita
+          coisa que ele desconhecia em todas aquelas terras. Aprende técnias em uma arte que difícil domínio, para auto-defesa; os livros começam a ocupar espaço em sua bagagem: tanto anotações
+          pessoais, relatos de seres agora esquecidos e endereços formam um peso considerável.<br>
+          Os anos se passam, é claro, e esse humano começa a adquirir maturidade e experiência. Suas técnicas de auto-defesa numa arte tão complicada são aperfeiçoadas, e, aos poucos, vai aprendendo
+          a lidar com diferentes tipos de criaturas...Ou não. Agora, esse humano já um adulto, com uma experiência mediana, mas com muito a percorrer.<br>
+          É nesse ponto que esse humano chega na cidade Argon, uma pequena cidade, meio oculta entre as montanhas, mas que abriga qualquer um que lá se instala. O motivo de ir até lá? O mesmo que
+          levou a sair de sua taverna e desbravar o mundo exterior. Está de noite, bem frio, e o céu aponta sinais de uma possível chuva. E, bem, é daqui que nós seguimos.
+        </p>
+
+    </div>
+    </article>
+    <!-- Um Botão que, quando clicado, pula a animação da história -->
+    <div id="pularHistoriaContainer" class="invisivel">
+      <button type="button"id="pularHistoriaEl">Pular</button>
+    </div>
+
+    <!-- A Parte mais importante do HTML base: a 'main', que contém todos os elementos da criação de avatar.
+    o jogador pode escolher um nome para o personagem, uma classe, e suas vestimentas. -->
+      <main id="container-avatar" class="invisivel">
+
+        <!-- Div que contém o preview do Avatar gerado -->
+        <div id="avatarFinal">
+          <!-- Elmos e Capacetes -->
+          <img src="imgs/criacaoAvatar/guerreiroElmo1.png" id = "elmoGuerreiro1" class = "imagensAvatar">
+          <img src="imgs/criacaoAvatar/guerreiroElmo2.png" id = "elmoGuerreiro2" class = "imagensAvatar">
+          <!-- Armaduras (Guerreiro/Ladino) -->
+            <!-- De Guerreiro-->
+          <img src="imgs/criacaoAvatar/guerreiroArmor1.png" id = "armaduraGuerreiro1" class= "imagensAvatar">
+          <img src="imgs/criacaoAvatar/guerreiroArmor2.png" id = "armaduraGuerreiro2" class = "imagensAvatar">
+            <!-- De Ladino -->
+          <img src="imgs/criacaoAvatar/ladinoArmor1.png" id = "armaduraLadino1" class = "imagensAvatar">
+          <img src="imgs/criacaoAvatar/ladinoArmor2.png" id = "armaduraLadino2" class = "imagensAvatar">
+          <!-- Mantos (Mago) -->
+          <img src="imgs/criacaoAvatar/magoManto1.png" id = "mantoMago1" class = "imagensAvatar">
+          <img src="imgs/criacaoAvatar/magoManto2.png" id = "mantoMago2" class = "imagensAvatar">
+          <!-- Modelos Base, Que Já Aparecem Visíveis Para o Jogador -->
+          <img src="imgs/criacaoAvatar/modeloCorpoBase.png" class = "modelosBase" id = "corpoDoPersonagem">
+          <img src="imgs/criacaoAvatar/modeloCabecaBase.png" class = "modelosBase" id = "cabecaDoPersonagem">
+        </div>
+
+        <label>Nome: <input type="text" placeholder="Insira um Nome Supimpa" maxlength="25" size="21" id="nomePersonagem"></label>
+
+        <br>
+        <br>
+
+        <label>Classe: <select id="EscolherClasse">
+                        <option value = "Guerreiro">Guerreiro</option>
+                        <option value = "Mago">Mago</option>
+                        <option value = "Ladino">Ladino</option>
+                      </select>
+
+        <br>
+
+        <p>Atributos:</p>
+        <ul>
+          <li>Força:  <span id="forcaPersonagem"></span></li>
+          <li>Inteligência:  <span id="inteligenciaPersonagem"></span></li>
+          <li>Agilidade:  <span id="agilidadePersonagem"></span></li>
+          <li>Carisma:  <span id="carismaPersonagem"></span></li>
+        </ul>
+
+        <br><br>
+
+      </main>
+
+      <!-- Botão que, quando clicado, termina a criação de avatar e parte para o jogo -->
+      <button id="concluirCriacaoAvatar" class="invisivel">Concluído</button>
+      <!-- Explicações rápidas e básicas obre a criação de avatar -->
+      <p id="explicacoesAvatar" class="invisivel"><strong>Criação de Avatar: </strong>Bem, aqui é aonde tudo começa! Escolha uma classe, um nome <strong>supimpa</strong>, distribua seus pontos
+        <br>
+        E inicie sua jornada pelo mundo de Hesteren!<br>
+        Os seus atributos influenciam diretamente no seu jogo, então escolha sabiamente...Ou não! Você enfrentará vários desafios morais e <br>físicos, então esteja preparado, e...Bem, esteja
+        preparado.
+        <br><br>
+        E Temos Aqui: <strong id = "nomeEscolhido"></strong>, o <strong id="classe-escolhida"></strong> !
+      </p>
+
+    <!-- Um Rodapé, com os créditos à pseudo-empresa do criador e amigos -->
+    <footer>Uma Produção Orange Wall<br>Esse projeto tem fins de aprendizado e todos os direitos são reservados. Não me perturbe por causa de direitos autorais.</footer>
+
+  <script src="js/cheet.js"></script>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/CapituloseSistemas.js"></script>
+  <script src="js/configuracoes.js"></script>
+  <script src="js/cenarioseEscolhas.js"></script>
+  <script src="js/IntroducaoJogo.js"></script>
+  <script src="js/criarAvatar.js"></script>
+
+  </body>
+</html>
