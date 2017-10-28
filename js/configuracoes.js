@@ -1,6 +1,9 @@
 //ARQUIVO QUE CUIDA DOS CONTROLES, MODAL E SOM. TAMBÉM É RESPONSÁVEL POR FAZER
 //O TÍTULO APARECER PARA O USUÁRIO/JOGADOR.
 
+//OBS: Abriga também algumas regras de resize para contribuir com o 'Responsive Design'.
+
+
 //Declarações de Variáveis Base
 
 let botaoSomEl = document.querySelector('#opcaoSom'),
@@ -61,6 +64,13 @@ function mostraTitulo(){
 
 setTimeout(mostraTitulo, 2500);
 
+//REGRAS DE RESIZE
+
+$(window).resize(function(){
+  if(window.innerWidth <= 480 ){
+    containerAvatar.remove();
+  }
+});
 
 
 
