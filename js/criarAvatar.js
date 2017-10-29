@@ -119,6 +119,7 @@ function MudaAparencia(classe){
 //não será mostrado.
 
 if(screen.width > 480){
+
   opcoesDeClasse.addEventListener('change', function mudaEquipamento(){
 
     if(opcoesDeClasse.value === 'Guerreiro'){
@@ -159,6 +160,10 @@ if(screen.width > 480){
       MudaAparencia('mago');
     }
   });
+}else{
+  let previewAvatar = document.querySelector('#avatarFinal');
+
+  $(previewAvatar).remove();
 }
 
 
