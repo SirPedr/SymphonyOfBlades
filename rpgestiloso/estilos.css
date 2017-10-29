@@ -171,9 +171,6 @@ button:hover{
   margin: 0 auto;
   padding-top: 10px;
 }
-#pularHistoriaEl{
-  float: right;
-}
 
 /*ESTILIZAÇÃO DE ID'S DA CRIAÇÃO DE AVATAR*/
 
@@ -204,12 +201,6 @@ button:hover{
   transition: 250ms ease-in;
 }
 
-#concluirCriacaoAvatar{
-  position: relative;
-  left: 50%;
-  margin-left: -7.5%;
-}
-
 /*Estilização de Classes*/
 
 .controlesImg{
@@ -229,6 +220,12 @@ button:hover{
 
 .textoRolando{
   animation: scrollUpHistoria 63s linear forwards;
+}
+
+.containerBotoes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ImagensCenario{
@@ -253,6 +250,8 @@ button:hover{
   width: 50%;
   font-size: 1.1em;
 }
+
+
 /*ESTILIZAÇÃO DE CLASSES DA CRIAÇÃO DE AVATAR*/
 
 .imagensAvatar{
