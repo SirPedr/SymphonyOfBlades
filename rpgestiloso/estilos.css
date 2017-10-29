@@ -1,4 +1,4 @@
-/*Estilização Geral*/
+﻿/*Estilização Geral*/
 
 html, body{
   height: 100%;
@@ -173,8 +173,8 @@ button:hover{
 }
 #pularHistoriaEl{
   float: right;
-  width: 15%;
 }
+
 /*ESTILIZAÇÃO DE ID'S DA CRIAÇÃO DE AVATAR*/
 
 #avatarFinal{
@@ -206,7 +206,6 @@ button:hover{
 
 #concluirCriacaoAvatar{
   position: relative;
-  width: 15%;
   left: 50%;
   margin-left: -7.5%;
 }
@@ -302,6 +301,14 @@ button:hover{
       font-size: 2em;
   }
 
+  #container-avatar{
+    height: 250px;
+    margin-top: 7.5%;
+  }
+
+  #explicacoesAvatar{
+    font-size: 0.7em;
+  }
   #comecarJogo{
     font-size: 1em;
   }
