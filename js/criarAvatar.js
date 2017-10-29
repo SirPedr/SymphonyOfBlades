@@ -114,47 +114,52 @@ function MudaAparencia(classe){
 
 //Evento que adiciona os 'selects' necessários de costumização de acordo com a classe
 //escolhida.
-opcoesDeClasse.addEventListener('change', function mudaEquipamento(){
 
-  if(opcoesDeClasse.value === 'Guerreiro'){
+//Não aplica a adição de selects caso a tela tenha uma largura de 480px ou menos, já que o preview nessas resoluções
+//não será mostrado.
 
-     deletaCostumizacaoAnterior();
+if(screen.width > 480){
+  opcoesDeClasse.addEventListener('change', function mudaEquipamento(){
 
-     //Chama a Função Feita Anteriormente com Os Parâmetros Necessários. A chamada ocorre
-     // duas vezes, para serem criados 2 'selects'.
-     acrescentaCostumizacao('Elmo:', 'Dark Souls Style', 'SemiAberto de Ferro','imgs/criacaoAvatar/guerreiroElmo1.png', 'imgs/criacaoAvatar/guerreiroElmo2.png', 'seletoresElmos');
-     acrescentaCostumizacao('Armadura:', 'Conjunto de Aço Completo', 'Casaco de Pele',
-     'imgs/criacaoAvatar/guerreiroArmor1.png', 'imgs/criacaoAvatar/guerreiroArmor2.png', 'seletoresArmor');
+    if(opcoesDeClasse.value === 'Guerreiro'){
 
-     //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
-     //com as opções escolhidas nos novos 'selects' criados
+       deletaCostumizacaoAnterior();
 
-     MudaAparencia('guerreiro');
+       //Chama a Função Feita Anteriormente com Os Parâmetros Necessários. A chamada ocorre
+       // duas vezes, para serem criados 2 'selects'.
+       acrescentaCostumizacao('Elmo:', 'Dark Souls Style', 'SemiAberto de Ferro','imgs/criacaoAvatar/guerreiroElmo1.png', 'imgs/criacaoAvatar/guerreiroElmo2.png', 'seletoresElmos');
+       acrescentaCostumizacao('Armadura:', 'Conjunto de Aço Completo', 'Casaco de Pele',
+       'imgs/criacaoAvatar/guerreiroArmor1.png', 'imgs/criacaoAvatar/guerreiroArmor2.png', 'seletoresArmor');
 
-  }else if(opcoesDeClasse.value === 'Ladino'){
+       //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
+       //com as opções escolhidas nos novos 'selects' criados
 
-     deletaCostumizacaoAnterior();
-    acrescentaCostumizacao('Elmo:', 'Nenhum', 'Aberto De Ferro',
-    'imgs/criacaoAvatar/modeloCabecaBase.png', 'imgs/criacaoAvatar/ladinoElmo1.png', 'seletoresElmos');
-    acrescentaCostumizacao('Vestimenta:', 'Armadura de Couro Simples', 'Armadura de Couro Reforçado',
-    'imgs/criacaoAvatar/ladinoArmor1.png', 'imgs/criacaoAvatar/ladinoArmor2.png', 'seletoresArmor');
+       MudaAparencia('guerreiro');
 
-    //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
-    //com as opções escolhidas nos novos 'selects' criados
+    }else if(opcoesDeClasse.value === 'Ladino'){
 
-    MudaAparencia('ladino');
+       deletaCostumizacaoAnterior();
+      acrescentaCostumizacao('Elmo:', 'Nenhum', 'Aberto De Ferro',
+      'imgs/criacaoAvatar/modeloCabecaBase.png', 'imgs/criacaoAvatar/ladinoElmo1.png', 'seletoresElmos');
+      acrescentaCostumizacao('Vestimenta:', 'Armadura de Couro Simples', 'Armadura de Couro Reforçado',
+      'imgs/criacaoAvatar/ladinoArmor1.png', 'imgs/criacaoAvatar/ladinoArmor2.png', 'seletoresArmor');
 
-  }else if(opcoesDeClasse.value === 'Mago'){
+      //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
+      //com as opções escolhidas nos novos 'selects' criados
 
-     deletaCostumizacaoAnterior();
+      MudaAparencia('ladino');
 
-    acrescentaCostumizacao('Manto (Robe) :', 'Manto de Mago das Altas Montanhas', 'Manto de Mago Monge Style',
-    'imgs/criacaoAvatar/magoManto1.png', 'imgs/criacaoAvatar/magoManto2.png', 'seletorMantos');
+    }else if(opcoesDeClasse.value === 'Mago'){
 
-    MudaAparencia('mago');
-  }
-});
+       deletaCostumizacaoAnterior();
 
+      acrescentaCostumizacao('Manto (Robe) :', 'Manto de Mago das Altas Montanhas', 'Manto de Mago Monge Style',
+      'imgs/criacaoAvatar/magoManto1.png', 'imgs/criacaoAvatar/magoManto2.png', 'seletorMantos');
+
+      MudaAparencia('mago');
+    }
+  });
+}
 
 
 
