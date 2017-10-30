@@ -1,4 +1,4 @@
-/*Estilização Geral*/
+﻿/*Estilização Geral*/
 
 html, body{
   height: 100%;
@@ -171,10 +171,7 @@ button:hover{
   margin: 0 auto;
   padding-top: 10px;
 }
-#pularHistoriaEl{
-  float: right;
-  width: 15%;
-}
+
 /*ESTILIZAÇÃO DE ID'S DA CRIAÇÃO DE AVATAR*/
 
 #avatarFinal{
@@ -204,13 +201,6 @@ button:hover{
   transition: 250ms ease-in;
 }
 
-#concluirCriacaoAvatar{
-  position: relative;
-  width: 15%;
-  left: 50%;
-  margin-left: -7.5%;
-}
-
 /*Estilização de Classes*/
 
 .controlesImg{
@@ -232,8 +222,14 @@ button:hover{
   animation: scrollUpHistoria 63s linear forwards;
 }
 
+.containerBotoes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ImagensCenario{
-  width: 30vw;
+  width: 15vw;
   border: 2px solid black;
   border-radius: 1.5%;
 }
@@ -254,11 +250,12 @@ button:hover{
   width: 50%;
   font-size: 1.1em;
 }
+
+
 /*ESTILIZAÇÃO DE CLASSES DA CRIAÇÃO DE AVATAR*/
 
 .imagensAvatar{
-  visibility: hidden;
-  position: absolute;
+  display: none;
 }
 
 .modelosBase{
@@ -303,6 +300,14 @@ button:hover{
       font-size: 2em;
   }
 
+  #container-avatar{
+    height: 250px;
+    margin-top: 7.5%;
+  }
+
+  #explicacoesAvatar{
+    font-size: 0.7em;
+  }
   #comecarJogo{
     font-size: 1em;
   }
