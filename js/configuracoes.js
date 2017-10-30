@@ -1,11 +1,12 @@
 //ARQUIVO QUE CUIDA DOS CONTROLES, MODAL E SOM. TAMBÉM É RESPONSÁVEL POR FAZER
 //O TÍTULO APARECER PARA O USUÁRIO/JOGADOR.
 
+
 //Declarações de Variáveis Base
 
 let botaoSomEl = document.querySelector('#opcaoSom'),
     botaoInfoEl = document.querySelector('#opcaoInfo'),
-    musicaDeFundoMenu = document.querySelector('#musica_fundo_inicial'),
+    musicaDeFundo = document.querySelector('#musicaDeFundo'),
     tocarMusica = sessionStorage.getItem('tocarMusica'),
     tituloPrincipalEl = document.querySelector('#titulo-menu');
     i = 0;
@@ -15,7 +16,7 @@ let botaoSomEl = document.querySelector('#opcaoSom'),
 if(tocarMusica === 'false'){
   botaoSomEl.src = 'imgs/somDesligado.png';
 }else{
-  musicaDeFundoMenu.play();
+  musicaDeFundo.play();
 }
 
 //Faz alterações na Imagem do Som e da música quando o símbolo é clicado
@@ -25,11 +26,11 @@ botaoSomEl.addEventListener('click', function alteraSom(){
   i++;
   if(i % 2 === 0){
     botaoSomEl.src = 'imgs/somLigado.png'; //Muda a Imagem do Som quando clicado
-    musicaDeFundoMenu.play();
+    musicaDeFundo.play();
     sessionStorage.setItem('tocarMusica', 'true');
   }else{
     botaoSomEl.src = 'imgs/somDesligado.png';
-    musicaDeFundoMenu.pause();
+    musicaDeFundo.pause();
     sessionStorage.setItem('tocarMusica', 'false');
   }
 

@@ -114,47 +114,57 @@ function MudaAparencia(classe){
 
 //Evento que adiciona os 'selects' necessários de costumização de acordo com a classe
 //escolhida.
-opcoesDeClasse.addEventListener('change', function mudaEquipamento(){
 
-  if(opcoesDeClasse.value === 'Guerreiro'){
+//Não aplica a adição de selects caso a tela tenha uma largura de 480px ou menos, já que o preview nessas resoluções
+//não será mostrado.
 
-     deletaCostumizacaoAnterior();
+if(screen.width > 480){
 
-     //Chama a Função Feita Anteriormente com Os Parâmetros Necessários. A chamada ocorre
-     // duas vezes, para serem criados 2 'selects'.
-     acrescentaCostumizacao('Elmo:', 'Dark Souls Style', 'SemiAberto de Ferro','imgs/criacaoAvatar/guerreiroElmo1.png', 'imgs/criacaoAvatar/guerreiroElmo2.png', 'seletoresElmos');
-     acrescentaCostumizacao('Armadura:', 'Conjunto de Aço Completo', 'Casaco de Pele',
-     'imgs/criacaoAvatar/guerreiroArmor1.png', 'imgs/criacaoAvatar/guerreiroArmor2.png', 'seletoresArmor');
+  opcoesDeClasse.addEventListener('change', function mudaEquipamento(){
 
-     //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
-     //com as opções escolhidas nos novos 'selects' criados
+    if(opcoesDeClasse.value === 'Guerreiro'){
 
-     MudaAparencia('guerreiro');
+       deletaCostumizacaoAnterior();
 
-  }else if(opcoesDeClasse.value === 'Ladino'){
+       //Chama a Função Feita Anteriormente com Os Parâmetros Necessários. A chamada ocorre
+       // duas vezes, para serem criados 2 'selects'.
+       acrescentaCostumizacao('Elmo:', 'Dark Souls Style', 'SemiAberto de Ferro','imgs/criacaoAvatar/guerreiroElmo1.png', 'imgs/criacaoAvatar/guerreiroElmo2.png', 'seletoresElmos');
+       acrescentaCostumizacao('Armadura:', 'Conjunto de Aço Completo', 'Casaco de Pele',
+       'imgs/criacaoAvatar/guerreiroArmor1.png', 'imgs/criacaoAvatar/guerreiroArmor2.png', 'seletoresArmor');
 
-     deletaCostumizacaoAnterior();
-    acrescentaCostumizacao('Elmo:', 'Nenhum', 'Aberto De Ferro',
-    'imgs/criacaoAvatar/modeloCabecaBase.png', 'imgs/criacaoAvatar/ladinoElmo1.png', 'seletoresElmos');
-    acrescentaCostumizacao('Vestimenta:', 'Armadura de Couro Simples', 'Armadura de Couro Reforçado',
-    'imgs/criacaoAvatar/ladinoArmor1.png', 'imgs/criacaoAvatar/ladinoArmor2.png', 'seletoresArmor');
+       //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
+       //com as opções escolhidas nos novos 'selects' criados
 
-    //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
-    //com as opções escolhidas nos novos 'selects' criados
+       MudaAparencia('guerreiro');
 
-    MudaAparencia('ladino');
+    }else if(opcoesDeClasse.value === 'Ladino'){
 
-  }else if(opcoesDeClasse.value === 'Mago'){
+       deletaCostumizacaoAnterior();
+      acrescentaCostumizacao('Elmo:', 'Nenhum', 'Aberto De Ferro',
+      'imgs/criacaoAvatar/modeloCabecaBase.png', 'imgs/criacaoAvatar/ladinoElmo1.png', 'seletoresElmos');
+      acrescentaCostumizacao('Vestimenta:', 'Armadura de Couro Simples', 'Armadura de Couro Reforçado',
+      'imgs/criacaoAvatar/ladinoArmor1.png', 'imgs/criacaoAvatar/ladinoArmor2.png', 'seletoresArmor');
 
-     deletaCostumizacaoAnterior();
+      //Chama a Função Responsável Por Mudar a Aparência do Personagem de acordo
+      //com as opções escolhidas nos novos 'selects' criados
 
-    acrescentaCostumizacao('Manto (Robe) :', 'Manto de Mago das Altas Montanhas', 'Manto de Mago Monge Style',
-    'imgs/criacaoAvatar/magoManto1.png', 'imgs/criacaoAvatar/magoManto2.png', 'seletorMantos');
+      MudaAparencia('ladino');
 
-    MudaAparencia('mago');
-  }
-});
+    }else if(opcoesDeClasse.value === 'Mago'){
 
+       deletaCostumizacaoAnterior();
+
+      acrescentaCostumizacao('Manto (Robe) :', 'Manto de Mago das Altas Montanhas', 'Manto de Mago Monge Style',
+      'imgs/criacaoAvatar/magoManto1.png', 'imgs/criacaoAvatar/magoManto2.png', 'seletorMantos');
+
+      MudaAparencia('mago');
+    }
+  });
+}else{
+  let previewAvatar = document.querySelector('#avatarFinal');
+
+  $(previewAvatar).remove();
+}
 
 
 
