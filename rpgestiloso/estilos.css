@@ -10,7 +10,7 @@ body{
   background-color: pink;
   /*background-image: url(../imgs/bgimg.jpg);*/
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   overflow-y: hidden;
   overflow-x: hidden;
   font-family: 'Didact Gothic', sans-serif;
