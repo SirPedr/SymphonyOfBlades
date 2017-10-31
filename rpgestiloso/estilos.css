@@ -7,7 +7,8 @@ html, body{
 body{
   margin: 0;
   height: 100%;
-  background-image: url(../imgs/bgimg.jpg);
+  background-color: pink;
+  /*background-image: url(../imgs/bgimg.jpg);*/
   background-size: cover;
   background-repeat: no-repeat;
   overflow-y: hidden;
