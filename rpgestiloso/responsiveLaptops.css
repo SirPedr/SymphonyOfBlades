@@ -1,0 +1,39 @@
+/*Arquivo CSS que garante que o site se adapte a telas gerais de Notebook, usando todo o espaço disponível para
+otimizar o Layout*/
+
+/*Estilização Geral*/
+
+button{
+  font-size: 1.2em;
+}
+
+/*Estilização de ID'S*/
+
+#avatarFinal{
+  min-width: 32.5%;
+}
+
+#botoesResponsive{
+  flex-direction: row;
+  width: 80vw;
+}
+
+#info{
+  width: 50%;
+}
+
+/*Estilização de Classes*/
+
+.botoesOpcoesDialogo{
+  margin: 0 0.5em;
+  height: 18vh;
+}
+
+.textoNarracoes{
+  width: 95%;
+}
+
+.selectsClasses{
+  display: block;
+  margin: 1em 0;
+}
