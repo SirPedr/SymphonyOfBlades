@@ -1,0 +1,36 @@
+/*Arquivo CSS que garante que o site se adapte a telas de Tablet, usando todo o espaço disponível para
+otimizar o Layout*/
+
+.controlesImg{
+  width: 3%;
+}
+
+.selectsClasses{
+  display: block;
+  margin: 1em 0;
+}
+
+.textoNarracoes{
+  width: 100%;
+}
+
+#titulo-principal{
+  font-size: 4em;
+}
+
+#explicacoesAvatar{
+  font-size: 1em;
+}
+#info{
+  width: 60%;
+  height: 85vh;
+  overflow-y: hidden;
+}
+
+#avatarFinal{
+  min-width: 47.5%;
+}
+
+#botoesResponsive{
+  width: 70vw;
+}
