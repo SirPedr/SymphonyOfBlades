@@ -30,7 +30,7 @@ function criaOpcoesDialogo(conteudoOpcao){
   $(novaOpcao).addClass('botoesOpcoesDialogo');
   novaOpcao.innerHTML = conteudoOpcao;
 
-  containerCenarioGeral.append(novaOpcao);
+  containerBotoes.append(novaOpcao);
 
   return;
 
@@ -87,6 +87,14 @@ function aumentaInteligencia(jogador){
 
   return;
 }
+
+function aumentaMoedas(jogador){
+
+  jogador.moedas += 10;
+  console.log(jogador.moedas);
+  return;
+
+}
 //------------------------------------------------------------------
 //Funções de condições específicas, que testam os atributos do jogador em momentos específicos para o desenrolar da próxima narrativa
 
@@ -118,9 +126,11 @@ function mudaNomeConhecido(jogador){
 
 function testeDeCarisma(jogador) {
 
-  if(jogador.carisma >= 3){
+  if(jogador.carisma > 2){
+    console.log(jogador.carisma);
     return 'primeiraQuestBardoRevelaBoato';
   }else{
+    console.log(jogador.carisma);
     return 'primeiraQuestBardoEscondeBoato';
   }
 }
@@ -139,10 +149,21 @@ function doacaoBardoMaior(jogador){
   jogador.moedas -= 35;
   return;
 }
+
+function bardoMorrera(jogador){
+  jogador.proximaMorte = 'bardo';
+  return;
+}
+
+function taberneiroMorrera(jogador){
+  jogador.proximaMorte = 'taberneiro';
+  return;
+}
 //Object (struct) que contém todos os cenários possíveis no jogo. Todos são compostos por uma imagem, uma narrativa e 3
 //opções, que desencadeam um novo cenário (exceto pelas escolhas de mais peso, que tem apenas 2 opções).
 
 var cenarios = {
+
 	tavernaInicial: {
     musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/TabernSongCap1.mp3",
 		imagem: 'imgs/Capitulos/cenarioTavernaCap1.jpg',
@@ -157,7 +178,7 @@ var cenarios = {
 	},
 
   dialogoTaverneiro: {
-    alteracao: diminuiMoedas,
+    alteracao: taberneiroMorrera,
     imagem: 'imgs/Capitulos/cenarioTaverneiroCap1.jpg',
     narrativa: 'O taverneiro olha para você, com uma cara desconfiada; de perto, ele não parece um anão. Ele pega um copo vazio, enche de hidromel e lhe entrega. Você bebe, e o gosto..Bem, é de hidromel que foi mal conservado numa taverna antiga. Limpando o balcão, o taverneiro lhe pergunta: "Você não é daqui, é? O que te traz até Argon?" ',
     opcoes: [{
@@ -266,8 +287,9 @@ var cenarios = {
   },
 
   dialogoBardo: {
+    alteracao: bardoMorrera,
     imagem: 'imgs/Capitulos/cenarioBardoCap1.jpg',
-    narrativa: 'A elfa está tocando de olhos fechados algo animado, que faz alguns poucos bárbaros a volta dançarem. Você puxa uma cadeira próxima e se senta, observando o lugar. Algumas pessoas estão jogando um jogo de cartas qualquer, gritando, rindo e bebendo. A elfa nota sua presença, abre os olhos e olha para você. "Veja bem, se não é um viajante que temos aqui! Um comerciante? Não..Um aventureiro! Diga-me: de onde vem?"',
+    narrativa: 'A elfa está tocando de olhos fechados algo animado, que faz alguns poucos bárbaros dançarem. Você puxa uma cadeira próxima e se senta. Algumas pessoas estão jogando um jogo de cartas qualquer, gritando, rindo e bebendo. A elfa nota sua presença, e abre os olhos. "Veja bem, se não é um viajante que temos aqui! Um comerciante? Não..Um aventureiro! Diga-me: de onde vem?"',
     opcoes: [{
       texto: 'Não se preocupe comigo, apenas estou apreciando a música. Continue, por favor.',
       proxNarrativa: 'lendasDoBardo'
@@ -276,14 +298,15 @@ var cenarios = {
       texto: 'Vim da grande Cidade Porto. Sou um aventureiro, de fato, buscando uma grande aventura e uma bela mulher',
       proxNarrativa: 'lendasDoBardo'
     },{
-      texto: 'Já percebo que esta cidade é cheia de curioso, não é mesmo? Apenas toque, por favor.',
+      alteracao: diminuiCarisma,
+      texto: 'Apenas toque. Não vim aqui para conversar.',
       proxNarrativa: 'lendasDoBardo'
     }]
   },
 
   lendasDoBardo:{
     imagem: 'imgs/Capitulos/cenarioBardoCap1.jpg',
-    narrativa: 'Ela ri. Começa a tocar mais alto, e um pequeno saco de moedas é jogado para perto dela, que simplesmente o ignora. Você olha para o saco, pensando em pegá-lo, talvez? Ou só apenas estranhando o fato de alguém ter ignorado um saco de dinheiro voando? Seja o que for, ela percebe sua reação e ri. "Vá se acostumando: nós de Argon somos curiosos, sim, e no mínimo interessantes. Aproveite nossa companhia, pois se a praga continuar nos atacando, nem eu nem ninguém aqui iremos durar muito. A propósito, qual seu nome?"',
+    narrativa: 'Ela ri. Ainda tocando, ela para por pouco tempo e pega um saco de moedas no ar, destinado para ela, e o guarda. Seja o que for sua reação, ela a percebe e ri. "Vá se acostumando: nós de Argon somos curiosos, sim, e no mínimo interessantes. Aproveite nossa companhia, pois se a praga continuar nos atacando, nem eu nem ninguém aqui iremos durar muito. A propósito, qual seu nome?"',
     opcoes: [{
       texto: 'Viajante, prazer em conhecê-la. Você disse algo sobre uma praga? O que é?',
       proxNarrativa: 'primeiraQuestBardoPart1'
@@ -385,7 +408,65 @@ var cenarios = {
       texto: 'Que os deuses o acompanhem, elfa. [Pegar a Chave e Ir Para o Quarto]',
       proxNarrativa: 'jogadorNoQuarto'
     }]
+  },
+
+  jogadorNoQuarto: {
+    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/AmbientSong.mp3",
+    imagem: 'imgs/Capitulos/cenarioQuartoCap1.jpg',
+    narrativa: 'O quarto foi feito para duas pessoas, não apenas uma. Teria você conseguido a vantagem de ter um quarto só para ti? Talvez. O único som audível é o da festa que acontece no andar de baixo, e que deve durar por mais algumas horas. A luz da lua junto a uma ou outra lamparina espalhadas pelo quarto são sua única fonte de iluminação. Há também, próximo à porta, uma estante com alguns poucos livros velhos.',
+    opcoes: [{
+      texto: '[Descansar]',
+      proxNarrativa: 'ataqueATaverna'
+    },{
+      alteracao: aumentaMoedas,
+      texto: '[Procurar No Quarto Qualquer Coisa Que Possa Ser Útil]',
+      proxNarrativa: 'achouMoedasNoQuarto'
+    },{
+      alteracao: aumentaInteligencia,
+      texto: '[Ler um Livro]',
+      proxNarrativa: 'leuLivroNoQuarto'
+    }]
+  },
+
+  achouMoedasNoQuarto: {
+    imagem: 'imgs/Capitulos/cenarioQuartoCap1.jpg',
+    narrativa: 'Você procura nas gavetas, e acha 10 moedas de ouro.',
+    opcoes: [{
+      alteracao: aumentaMoedas,
+      texto: '[Descansar]',
+      proxNarrativa: 'ataqueATaverna'
+    }]
+  },
+
+  leuLivroNoQuarto: {
+    imagem:'imgs/Capitulos/cenarioQuartoCap1.jpg',
+    narrativa: 'Você lê alguns capítulos de um livro velho sobre Magia Negra, que, pelo que parece, é o assunto do momento.',
+    opcoes: [{
+      alteracao: aumentaInteligencia,
+      texto: '[Descansar]',
+      proxNarrativa: 'ataqueATaverna'
+    }]
+  },
+
+  ataqueATaverna: {
+    imagem: 'imgs/Capitulos/cenarioQuartoCap1.jpg',
+    narrativa: 'No meio de seu profundo sono, você é acordado pelo som de lâminas e gritos, e até mesmo o de fogo. Rapidamente, você se veste e arruma seus pertences.',
+    opcoes: [{
+      texto: '[Descer e Ver o Que Está Acontecendo]',
+      proxNarrativa: 'ataqueNecromantes'
+    }]
+  },
+
+  ataqueNecromantes: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você desce as escadas rapidamente, preparado (ou não) para qualquer ataque que possa ser feito contra você. Chegando no primeiro andar, tudo o que você vê são alguns corpos inconscientes no chão, seres variados lutando com socos e espadas, e bastante sangue derramado. Seria uma briga ocasional que acontece em qualquer taverna? Poderia ser, mas você nota uma figura um tanto quanto estranha, que não estava presente antes: uma pessoa, com um manto cinzento um pouco rasgado, com pouco do rosto revelado, pele bem clara e unhas grandes e de formato triangular. Perto dela, não há nada que se aproxime sem ser alvejada com ataques rápidos e visivelmente dolorosos; avança por todo o estabelecimento, que não é pequeno, atacando todos em seu caminho, e está vindo em direção a você.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'ataqueNecromantesPart2'
+    }]
   }
+
+//  "ANOT: .O PERSONAGEM QUE O JOGADOR FALOU VAI MORRER, O KARMA VAI DEFINIR SE A CIDADE VAI REPUDIAR OU NÃO O JOGADOR, O JOGADOR ENTRA EM UM COMBATE RÁPIDO COM O NECROMANTE E DESMAIA, FINDANDO O CAP. 1"
 
 };
 
@@ -402,9 +483,25 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
   removeElementosAnteriores();
   //Aplica o 'src' da nova imagem à imagem que aparece ao jogador e a coloca no Container
   $(imagemCenario).attr('src', cenarios[proximoCenario].imagem);
+
+  /*if(imagemCenario.width >= "360"){
+    console.log(imagemCenario.width);
+    $(imagemCenario).css("width", "15vw");
+  }*/
+
   $(musicaDeFundo).attr('src', cenarios[proximoCenario].musica);
   $(musicaDeFundo).prop('volume', 0.65);
-  musicaDeFundo.play();
+
+  if(tocarMusica != 'false'){
+    musicaDeFundo.play();
+  }
+
+  console.log(screen.height);
+
+/*  if(645 <= screen.height <= 672){
+    containerBotoes.id = 'botoesResponsive';
+  }*/
+
   containerCenarioGeral.append(imagemCenario);
   //Coloca dentro do 'p' a narração que descreve o cenário atual e o coloca no Container, após a img
   narracaoCenarioAtual.innerHTML = cenarios[proximoCenario].narrativa;
@@ -415,13 +512,19 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
     criaOpcoesDialogo(cenarios[proximoCenario].opcoes[i].texto);
   }
 
+  containerCenarioGeral.append(containerBotoes);
   //Coloca o container no Body; torna-o visível ao jogador
   BodyEl.append(containerCenarioGeral);
 
   //Seleciona todos os elementos com a classe 'botoesOpcoesDialogo', ou seja, todos os botões que representam
   //As escolhas possíveis.
 
-  let botoesOpcoesDialogo = $('.botoesOpcoesDialogo');
+  let botoesOpcoesDialogo = $('.botoesOpcoesDialogo'),
+      alteracaoAtributosCenario = cenarios[proximoCenario].alteracao;
+
+      if(alteracaoAtributosCenario != undefined){
+        alteracaoAtributosCenario = alteracaoAtributosCenario(jogador);
+      }
 
   //Cria uma estrutura de repetição que percorre todos os elementos com essa classe
   for(let i = 0; i < botoesOpcoesDialogo.length ; i++){
@@ -430,26 +533,24 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
 		$(botoesOpcoesDialogo[i]).data("proxNarrativa", cenarios[proximoCenario].opcoes[i].proxNarrativa);
 
 
+
     //Quando algum dos 3 botões é clicado, ele ativa o evento que leva o jogador ao próximo cenário
 		botoesOpcoesDialogo[i].addEventListener("click", function (e){
 
       //Isola o botão clicado
 			let opcaoClicada = e.currentTarget;
 
-      let alteracaoAtributosDialogo = cenarios[proximoCenario].opcoes[i].alteracao,
-          alteracaoAtributosCenario = cenarios[proximoCenario].alteracao;
+      let alteracaoAtributosDialogo = cenarios[proximoCenario].opcoes[i].alteracao;
 
 			let proxNarra = $(opcaoClicada).data("proxNarrativa");
 
       //Algumas escolhas resultam na alteração de algum atributo do personagem: força, carisma, etc.
       //essas escolhas tem a propriedade 'alteracao', que direciona até a função que faz a mudança necessária. Se esse campo existir, ele executa a função e a alteração é feita.
+
       if(alteracaoAtributosDialogo != undefined){
         alteracaoAtributosDialogo = alteracaoAtributosDialogo(jogador);
       }
 
-      if(alteracaoAtributosCenario != undefined){
-        alteracaoAtributosCenario = alteracaoAtributosCenario(jogador);
-      }
 
       //Caso o valor do data 'proxNarrativa' seja uma função, ele a executa, passando o objeto 'jogador' como parâmetro
       //Caso contrário, ele simplesmente não entra na condição e segue executando as próximas linhas
