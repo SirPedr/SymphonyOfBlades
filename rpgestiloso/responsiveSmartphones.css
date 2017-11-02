@@ -1,0 +1,56 @@
+/*Arquivo CSS que garante o Responsive Designs em smarpthones*/
+
+/*Estilização Geral*/
+
+footer{
+  font-size: 0.4em;
+}
+
+button{
+  font-size: 1em;
+}
+
+/*Estilização de ID's*/
+
+#titulo-principal{
+    font-size: 2em;
+}
+
+#container-avatar{
+  height: 250px;
+}
+
+#explicacoesAvatar{
+  font-size: 0.7em;
+}
+
+#comecarJogo{
+  font-size: 1em;
+}
+
+#info{
+  width: 70vw;
+  height: 50vh;
+}
+
+/*Estilização de Classes*/
+.ImagensCenario{
+  width: 60vw;
+}
+
+.textoNarracoes{
+  font-size: 0.85em;
+}
+
+.textoNarracoes{
+  width: 100vw;
+}
+
+.botoesOpcoesDialogo{
+  width: 94vw;
+}
+
+.controlesImg{
+  padding: 5px;
+  width: 5%;
+}
