@@ -7,10 +7,9 @@ html, body{
 body{
   margin: 0;
   height: 100%;
-  /*background-color: pink;*/
   background-image: url(../imgs/bgimg.jpg);
   background-size: cover;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   overflow-y: hidden;
   overflow-x: hidden;
   font-family: 'Didact Gothic', sans-serif;
@@ -20,6 +19,10 @@ body{
   -webkit-user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
  h3{
@@ -108,15 +111,12 @@ button:hover{
   font-weight: bold;
   position: absolute;
   color: black;
-  left: 50%;
-  top: 50%;
-  margin-left: -15%;
   background-color: rgba(255, 255, 255, 1.0);
   border: 2px solid black;
   border-radius: 1.5%;
   width: 30%;
-  min-height: 30vh;
-  margin-top: -35vh;
+  height: 80vh;
+  overflow-y: scroll;
   padding: 25px;
   transition: 100ms linear;
   z-index: -1;
@@ -152,16 +152,12 @@ button:hover{
 #historia-previa{
   width: 50%;
   height: 38vh;
-  margin-top: 19vh;
   border: 2px solid black;
   overflow-y: hidden;
   padding: 8px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: rgba(0, 0, 0, 0.2);
   transition: 250ms linear;
 }
-
 
 #conteudoHistoria:hover{
   animation-play-state: paused;
@@ -171,6 +167,14 @@ button:hover{
   width: 50%;
   margin: 0 auto;
   padding-top: 10px;
+}
+
+#botoesResponsive{
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  justify-content: center;
+  align-items: center;
 }
 
 /*ESTILIZAÇÃO DE ID'S DA CRIAÇÃO DE AVATAR*/
@@ -191,8 +195,6 @@ button:hover{
   height: 360px;
   padding: 15px;
   width: 60%;
-  margin: 0 auto;
-  margin-top: 5%;
   transition: 1s ease-in;
 }
 
@@ -230,7 +232,7 @@ button:hover{
 }
 
 .ImagensCenario{
-  width: 15vw;
+  width: 25vw;
   border: 2px solid black;
   border-radius: 1.5%;
 }
@@ -245,7 +247,7 @@ button:hover{
 }
 
 .botoesOpcoesDialogo{
-  width: 35%;
+  width: 100%;
 }
 .textoNarracoes{
   width: 50%;
@@ -286,56 +288,4 @@ button:hover{
     to{
       transform: translateY(-105%);
     }
-}
-/* Adaptações e 'Responsive Design' */
-
-/*Adaptações para Smartphones*/
-
-@media (max-width: 480px){
-
-  footer{
-    font-size: 0.4em;
-  }
-
-  #titulo-principal{
-      font-size: 2em;
-  }
-
-  #container-avatar{
-    height: 250px;
-    margin-top: 7.5%;
-  }
-
-  #explicacoesAvatar{
-    font-size: 0.7em;
-  }
-  #comecarJogo{
-    font-size: 1em;
-  }
-
-  .ImagensCenario{
-    width: 60vw;
-  }
-
-  .textoNarracoes{
-    font-size: 0.85em;
-  }
-
-  .textoNarracoes, .botoesOpcoesDialogo{
-    width: 100%;
-  }
-
-  .controlesImg{
-    padding: 5px;
-    width: 5%;
-  }
-
-}
-
-@media (max-width: 1193px){
-  #info{
-    width: 35%;
-    overflow-y: scroll;
-    height: 50vh;
-  }
 }
