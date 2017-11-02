@@ -6,12 +6,13 @@ let botaoConcluirAvatarEl = $('#concluirCriacaoAvatar');
 //Variáveis imprescindíveis: a imagem, o texto 'p' com a narração do cenário.
 let imagemCenario = document.createElement('img'),
     containerCenarioGeral = document.createElement('figure'),
+    containerBotoes = document.createElement('div'),
     narracaoCenarioAtual = document.createElement('p');
 
   $(containerCenarioGeral).addClass('containerCenarioGeral');
   $(imagemCenario).addClass('ImagensCenario');
   $(narracaoCenarioAtual).addClass('textoNarracoes');
-
+  containerBotoes.id = 'botoesResponsive';
 
 
 function removeElementosAnteriores(){
