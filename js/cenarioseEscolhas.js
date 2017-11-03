@@ -95,7 +95,19 @@ function aumentaMoedas(jogador){
   return;
 
 }
+
+function aumentaForca(jogador){
+  jogador.forca += 1;
+  return;
+}
+
+function aumentaAgilidade(jogador){
+  jogador.agilidade += 1;
+  return;
+}
+
 //------------------------------------------------------------------
+
 //Funções de condições específicas, que testam os atributos do jogador em momentos específicos para o desenrolar da próxima narrativa
 
 function testePrecoEstadia(jogador){
@@ -156,13 +168,80 @@ function bardoMorrera(jogador){
 }
 
 function taberneiroMorrera(jogador){
-  jogador.proximaMorte = 'taberneiro';
+  jogador.proximaMorte = 'taverneiro';
   return;
+}
+
+function testeDeForcaMaior(jogador){
+  if(jogador.forca > 3 ){
+    return 'bloqueioTrue';
+  }else{
+    return 'bloqueioFalse';
+  }
+}
+
+function testeDeForcaTaverna(jogador){
+
+  if(jogador.forca >= 2){
+    return 'bloqueioNecromanteTrue';
+  }else{
+    return 'bloqueioNecromanteFalse';
+  }
+}
+
+function testeDeAgilidadeTaverna(jogador){
+
+    if(jogador.agilidade >= 3){
+      return 'desvioTrue';
+    }else{
+      return 'desvioFalse';
+    }
+
+}
+
+function testeDeAgilidadeTavernaPart2(jogador){
+  if(jogador.agilidade > 3){
+    return 'desvioChuteSucesso';
+  }else{
+    return 'desvioChuteFracasso';
+  }
+}
+
+function testeDeAgilidadeContraAtq(jogador){
+
+  if(jogador.agilidade > 3){
+    return 'ConAtqTrue';
+  }else{
+    return 'ConAtqFalse';
+  }
+
+}
+
+function mortePersonagem(jogador){
+  if(jogador.proximaMorte === 'taverneiro'){
+    return 'morteTaverneiro';
+  }else if(jogador.proximaMorte === 'bardo'){
+    return 'morteBardo';
+  }
+}
+
+function testeDeKarmaCap1(jogador){
+  if(jogador.karma < 0){
+    return 'finalCap1JogadorPreso';
+  }else{
+    return 'finalCap1JogadorProtegido';
+  }
 }
 //Object (struct) que contém todos os cenários possíveis no jogo. Todos são compostos por uma imagem, uma narrativa e 3
 //opções, que desencadeam um novo cenário (exceto pelas escolhas de mais peso, que tem apenas 2 opções).
 
 var cenarios = {
+
+  /*       CENÁRIOS E RAMIFICAÇÕES
+               DO CAPÍTULO 1                   */
+
+/*SINOPSE: O VIAJANTE (JOGADOR) CHEGA PELA NOITE NA CIDADE DE ARGON, UMA CIDADE ENTRE AS MONTANHAS. LÁ, ELE ENTRA EM UMA TAVERNA, PROCURANDO UM LUGAR PARA
+  PASSAR A NOITE. CHEGANDO LÁ, ELE FALA COM ALGUÉM (UM BARDO OU O TAVERNEIRO) E DESCORBE QUE HÁ UMA PRAGA AMEAÇANDO A CIDADE. O JOGADOR DECIDE FICAR E INVESTIGAR.*/
 
 	tavernaInicial: {
     musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/TabernSongCap1.mp3",
@@ -403,7 +482,7 @@ var cenarios = {
 
   despedidaBardo: {
     imagem: 'imgs/Capitulos/cenarioBardoCap1.jpg',
-    narrativa: 'Você joga suas moedas para perto dela, e ela ignora, justamente como fez com o outro saco que havia aparecido anteriormente. "A cidade de Argon agradece sua doação, viajante! Boa sorte em tua investigação, farei questão de tocar alguma melodia em teu funeral. Se quer meu conselho, fique por aqui. Não ficarei nesta taverna hoje à noite, então lhe darei a chave do meu quarto." [Ela para a música por alguns segundos e lhe entrega a chave].',
+    narrativa: 'Você joga um pequeno saco de moedas para ela, e ela o pega e guarda, justamente como fez com o outro saco que havia aparecido anteriormente. "A cidade de Argon agradece sua doação, viajante! Boa sorte em tua investigação, farei questão de tocar alguma melodia em teu funeral. Se quer meu conselho, fique por aqui. Não ficarei nesta taverna hoje à noite, então lhe darei a chave do meu quarto." [Ela para a música por alguns segundos e lhe entrega a chave].',
     opcoes: [{
       texto: 'Que os deuses o acompanhem, elfa. [Pegar a Chave e Ir Para o Quarto]',
       proxNarrativa: 'jogadorNoQuarto'
@@ -458,13 +537,253 @@ var cenarios = {
   },
 
   ataqueNecromantes: {
+    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/BattleSong1.mp3",
     imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
     narrativa: 'Você desce as escadas rapidamente, preparado (ou não) para qualquer ataque que possa ser feito contra você. Chegando no primeiro andar, tudo o que você vê são alguns corpos inconscientes no chão, seres variados lutando com socos e espadas, e bastante sangue derramado. Seria uma briga ocasional que acontece em qualquer taverna? Poderia ser, mas você nota uma figura um tanto quanto estranha, que não estava presente antes: uma pessoa, com um manto cinzento um pouco rasgado, com pouco do rosto revelado, pele bem clara e unhas grandes e de formato triangular. Perto dela, não há nada que se aproxime sem ser alvejada com ataques rápidos e visivelmente dolorosos; avança por todo o estabelecimento, que não é pequeno, atacando todos em seu caminho, e está vindo em direção a você.',
     opcoes: [{
       texto: '[Continuar]',
       proxNarrativa: 'ataqueNecromantesPart2'
     }]
+  },
+
+  ataqueNecromantesPart2: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Ele passa pela última pessoa que estava entre você e ele, e se prepara para te atacar. Não porta nenhum tipo de arma, somente as mãos, envoltas por uma camada de energia negra. Ele se aproxima mais e tenta desferir um soco bem no seu rosto.',
+    opcoes: [{
+      texto: '[Bloquear o Soco]',
+      proxNarrativa: testeDeForcaTaverna
+    },{
+      texto: '[Desviar do Soco]',
+      proxNarrativa: testeDeAgilidadeTaverna
+    },{
+      texto: '[Contra-Atacar]',
+      proxNarrativa: testeDeAgilidadeContraAtq
+    }]
+  },
+
+  bloqueioNecromanteTrue: {
+    alteracao: aumentaForca,
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você consegue parar o soco do necromante com sua mão, mas com bastante esforço, e não vai durar muito tempo. Ele de imediato se assuta, mas é ágil o suficiente para te dar um chute nas costelas.',
+    opcoes: [{
+      texto: '[Desviar do Chute]',
+      proxNarrativa: testeDeAgilidadeTavernaPart2
+    },{
+      texto: '[Bloquear o Chute]',
+      proxNarrativa: testeDeForcaMaior
+    }]
+  },
+
+  bloqueioNecromanteFalse: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narratiava: 'Você tenta para o soco, mas sua força não é suficiente, e ele te acerta em cheio, te jogando contra uma mesa. Você se vira, e a única coisa no seu campo de visão é seu pé, pronto para lhe desferir um chute.',
+    opcoes: [{
+      texto: '[Desviar do Chute]',
+      proxNarrativa: testeDeAgilidadeTavernaPart2
+    },{
+      texto: '[Bloquear o Chute]',
+      proxNarrativa: testeDeForcaMaior
+    }]
+  },
+
+  desvioTrue: {
+    alteracao: aumentaAgilidade,
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você desvia para o lado rapidamente e o soco é em vão. O necromante se assusta, mas, tão rapidamente quanto, pula em sua direção, lhe desferindo um chute bem no peito.',
+    opcoes: [{
+      texto: '[Desviar do Chute]',
+      proxNarrativa: testeDeAgilidadeTaverna
+    },{
+      texto: '[Bloquear o Chute]',
+      proxNarrativa: testeDeForcaMaior
+    }]
+  },
+
+  desvioFalse: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você não é rápido o suficiente, e o soco vai bem no seu rosto, e dói...Muito. Você cai no chão de joelhos e, ao se levantar, se depara com o pé do homem misterioso vindo até seu peito. Bom, é um chute.',
+    opcoes: [{
+      texto: '[Desviar do Chute]',
+      proxNarrativa: testeDeAgilidadeTavernaPart2
+    },{
+      texto: '[Bloquear o Chute]',
+      proxNarrativa: testeDeForcaMaior
+    }]
+  },
+
+  ConAtqTrue: {
+    alteracao: aumentaAgilidade,
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Ágil como um pica-pau, você consegue agarrar o braço dele, puxar para si e desferir um soco bem no queixo, que derruba ele no chão. No mesmo instante, ele se levanta com um salto e tenta te desferir um chute bem no peito.',
+    opcoes: [{
+      texto: '[Desviar do Chute]',
+      proxNarrativa: testeDeAgilidadeTavernaPart2
+    },{
+      texto: '[Bloquear o Chute]',
+      proxNarrativa: testeDeForcaMaior
+    }]
+  },
+
+  ConAtqFalse: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você tenta dar um outro soco paralelo, mas o homem misterioso é mais rápido e você cai no chão imediatamente, batendo a cabeça numa mesa, te deixando inconsciente.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: mortePersonagem
+    }]
+  },
+
+  bloqueioTrue: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você consegue segurar a perna do homem misterioso, e o joga contra a parede. Você se afasta, e se prepara para lhe desferir um soco. Antes que você pudesse fazer qualquer coisa, a energia negra que cobria suas mãos se espalha pelo seu corpo; ele toma impulso na parede e consegue lhe desferirum soco que te joga no chão e te deixa inconsciente.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: mortePersonagem
+    }]
+  },
+
+  bloqueioFalse: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você tenta segurar a perna do homem misterioso, mas você não é forte o suficiente e, mesmo com uma potência menor, você recebe o chute, perde o equilíbrio e bate a cabeça contra uma mesa de madeira, te deixando inconsciente.',
+    opcoes:[{
+      texto: '[Continuar]',
+      proxNarrativa: mortePersonagem
+    }]
+  },
+
+  desvioChuteSucesso: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Você se afasta do homem misterioso e consegue se esquivar do chute. Entretanto, ele se mostra ágil como um pica-pau, e dá um salto contra você, lhe desferindo um outro chute no ar que te acerta em cheio. Você pade a cabeça na parede e cai, inconsciente.',
+    opcoes:[{
+      texto: '[Continuar]',
+      proxNarrativa: mortePersonagem
+    }]
+  },
+
+  desvioChuteFracasso: {
+    imagem: 'imgs/Capitulos/cenarioatqNecroCap1.png',
+    narrativa: 'Mesmo tendo feito os movimentos certos, você acaba não sendo rápido o suficiente, e leva o chute em cheio, sendo lançado contra uma mesa de madeira. Na colisão, você acaba batendo sua cabeça na ponta desta, e cai, inconsciente.',
+    opcoes:[{
+      texto: '[Continuar]',
+      proxNarrativa: mortePersonagem
+    }]
+  },
+
+  morteBardo: {
+    imagem: ' ',
+    narrativa: 'Você acorda, com a visão turva e meio zonzo; não consegue estipular o tempo que ficou inconsciente, mas presume que foi bastante: a taverna agora está completamente destruída: móveis quebrados, sangue no chão e nas paredes, e alguns corpos no chão. Se estes estão mortos, é difícil dizer, mas há um em especial que você reconhece, preso na parede por uma lança negra. Você se aproxima, e, na medida que seus sentidos vão voltando ao normal, você consegue identificar o corpo: uma elfa, de cabelos loiros, com um alaúde quebrado ao lado, com os trajes cheios de sangue; o bardo, lá estava, a beira da morte.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'morteBardoPt2'
+    }]
+  },
+
+  morteBardoPt2: {
+    imagem: ' ',
+    narrativa: 'Você se aproxima, e a elfa levanta a cabeça repentinamente, olhando para você; ela tosse bastante, e cospe muito sangue. "Eu disse para aproveitar nossa companhia, viajante. Nada é capaz de impedir tal criatura. Ela irá destruir tudo em seu caminho para conseguir o que quer."',
+    opcoes: [{
+      texto: 'O que aconteceu com você?',
+      proxNarrativa: 'explicacaoMorteNPC'
+    },{
+      texto: 'Tola, você deveria ter partido o quanto antes.',
+      proxNarrativa: 'discursoPreMorteBardo'
+    },{
+      texto: '[Examinar a Lança]',
+      proxNarrativa: 'finalCap1Part1'
+    }]
+  },
+
+  explicacaoMorteNPC: {
+    imagem: ' ',
+    narrativa: '"Você já tinha subido quando aconteceu. Nós ouvimos gritos e sons de batalha do lado de fora, e então trancamos tudo. Foi só uma questão de tempo até eles invadirem a taverna e matassem todos. [Tosse]. Parece que a sorte está ao seu lado, não é mesmo, viajante? Que os deuses nos recebam em seus aposentos.". Poucos segundos depois, esta pessoa que antes estava entre a vida e a morte, morre.',
+    opcoes: [{
+      texto: '[Examinar a Lança]',
+      proxNarrativa: 'finalCap1Part1'
+    }]
+  },
+
+  discursoPreMorteBardo: {
+    imagem: ' ',
+    narrativa: '"E adiar o inevitável? Um bardo jamais nega seu destino, nós vivemos cada momento como se fosse o último, cantando, bebendo e dançando. Nós acreditamos que cada música que fazemos é responsável por narrar uma parte da história de Hesteren, e minha parte termina aqui. Adeus viajante, que os deuses me recebam com alegria...E um novo alaúde." Poucos segundos após dito, a elfa morre, com um sorriso no rosto.',
+    opcoes: [{
+      texto: '[Examinar a Lança]',
+      proxNarrativa: 'finalCap1Part1'
+    }]
+  },
+
+  morteTaverneiro: {
+    imagem: ' ',
+    narrativa: 'Você acorda, com a visão turva e meio zonzo; não consegue estipular o tempo que ficou inconsciente, mas presume que foi bastante: a taverna agora está completamente destruída: móveis quebrados, sangue no chão e nas paredes, e alguns corpos no chão. Se estes estão mortos, é difícil dizer, mas há um em especial que você reconhece, preso na parede por uma lança negra. Quando você se aproxima, você enxerga uma figura com trajes de início brancos, mas que estão agora manchados de sujeira e sangue. Botas esfarrapadas e velhas. Quando sua visão começa a voltar ao normal, você consegue ver o rosto: trata-se de um homem branco, calvo e com uma barba volumosa. O taverneiro ali está, a beira da morte.',
+    opcoes: [{
+      texto: 'O que aconteceu com você?',
+      proxNarrativa: 'explicacaoMorteNPC'
+    },{
+      texto: 'Idiota, por que não partiste? Uma taverna pode ser construída em qualquer lugar!',
+      proxNarrativa: 'discursoPreMorteTaverneiro'
+    },{
+      texto: '[Examinar a Lança]',
+      proxNarrativa: 'finalCap1Part1'
+    }]
+  },
+
+  discursoPreMorteTaverneiro: {
+    imagem: ' ',
+    narrativa: '"Não posso negar o meu destino, filho. Sabe, há anos eu desafio a morte, mas dessa vez, eu não consegui enganá-la. Ninguém consegue, nem mesmo estes que atacaram minha taverna. Eles irão perecer, e eu estarei no inferno, junto a eles, quando acontecer.". É dito isto que o taverneiro dá seu último suspiro, e caminha para a morte.',
+    opcoes: [{
+      texto: '[Examinar a Lança]',
+      proxNarrativa: 'finalCap1Part1'
+    }]
+  },
+
+  finalCap1Part1: {
+    imagem: 'imgs/Capitulos/organizacaoSimbolo.png',
+    narrativa: 'Você não consegue remover a lança da parede, mas nela há um símbolo esculpido, extremamente detalhado, que você conhece: é o símbolo do Culto dos Sete Olhos de Deus, um culto extremamente mal visto por Hesteren que pratica atos envolvendo magia negra e necromancia. Enquanto todos estes pensamentos passam por sua cabeça e você começa a encaixar as peças, você ouve, do lado de fora, os sons do que parecem ser várias pessoas conversando. Os sons de lâminas também sugerem que podem estar armadas.',
+    opcoes: [{
+      texto: '[Se Esconder]',
+      proxNarrativa: 'finalCap1Part2Alt'
+    },{
+      texto: '[Sair]',
+      proxNarrativa: testeDeKarmaCap1
+    }]
+  },
+
+  finalCap1Part2Alt: {
+    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/DarkAmbientMusic.mp3",
+    imagem: ' ',
+    narrativa: 'Você fica atrás do balcão, uma das poucas coisas que não fora completamente destruída. Pouco tempo depois, você ouve o som de vários passos, que se aproximam mais e mais. Uma multidão de pessoas entram na taverna com espadas, escudos e lanças, e se deparam com toda aquela cena. Não demora muito para que eles comecem a averiguar o lugar. Você tenta permanecer furtivo, mas um camponês armado com uma espada lhe encontra embaixo de uma mesa, e anuncia para todos os outros. Você é feito de refém e posto de joelhos.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'finalCap1FinalAt'
+    }]
+  },
+
+  finalCap1FinalAt: {
+    imagem: ' ',
+    narrativa: '"Este bruxo estava tentando se esconder de nós! Ele é a praga que os deuses nos enviaram para nos atormentar!", grita o homem. Eles te amarram, e tampam sua boca. Você não consegue se pronunciar nem se manifestar. "Nós o capturamos! Levem-no para a masmorra, já! O lorde Iron Wood o levará ao encontro com a morte!". Nisso, alguém lhe bate com o pomo da espada, e você cai no chão, inconsciente,',
+    opcoes:[{
+      texto: '[Fim do Capítulo 1]',
+      proxNarrativa: 'Cap2InicioPreso'
+    }]
+  },
+
+  finalCap1JogadorPreso: {
+    imagem: 'imgs/Capitulos/escolhaFugaDaTavernaCap1.jpg',
+    narrativa: 'Você sai da taverna, esperando ficar seguro ao lado de outras pessoas? Pedir ajuda, talvez? O que quer que seja, não importa: assim que você sai, várias lâminas são apontadas diretamente para você, seguradas por elfos, humanos, orcs, etc. "Ele é o bruxo! Levem-no para o lorde Iron Wood!", grita um deles. No mesmo instante, alguem bate com o pomo da espada na sua cabeça, e você cai, inconsciente.',
+    opcoes:[{
+      texto: '[Fim do Capítulo 1]',
+      proxNarrativa: 'Cap2InicioPreso'
+    }]
+  },
+
+  finalCap1JogadorProtegido: {
+    imagem: ' ',
+    narrativa: 'Você sai da taverna, esperando ficar seguro ao lado de outras pessoas? Pedir ajuda, talvez? De qualquer forma, assim que você sai, as lâminas que poderiam estar apontadas para você se abaixam, e você se depara com vários elfos, orcs, humanos, etc. "Um sobrevivente!", grita um elfo; este se aproxima até você. "Temos um sobrevivente ao ataque dessa noite! Rápido, parece ferido! Vamos levá-lo até o lorde Iron Wood!", ele diz. No mesmo instante, um orc com roupas de camponês se aproxima de você faz um sinal para segui-lo. "Venha, viajante. Você precisa ver o lorde Iron Wood. Você foi a única pessoa que conseguiu sobreviver a um ataque dessa praga nos últimos 4 dias."',
+    opcoes:[{
+      texto: '[Fim do Capítulo 1]',
+      proxNarrativa: 'Cap2InicioSobrevivente'
+    }]
   }
+
 
 //  "ANOT: .O PERSONAGEM QUE O JOGADOR FALOU VAI MORRER, O KARMA VAI DEFINIR SE A CIDADE VAI REPUDIAR OU NÃO O JOGADOR, O JOGADOR ENTRA EM UM COMBATE RÁPIDO COM O NECROMANTE E DESMAIA, FINDANDO O CAP. 1"
 
@@ -490,13 +809,13 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
   }*/
 
   $(musicaDeFundo).attr('src', cenarios[proximoCenario].musica);
-  $(musicaDeFundo).prop('volume', 0.65);
+  $(musicaDeFundo).attr('volume', 0.65);
 
-  if(tocarMusica != 'false'){
+  if(tocarMusica === 'false'){
+    musicaDeFundo.pause();
+  }else{
     musicaDeFundo.play();
   }
-
-  console.log(screen.height);
 
 /*  if(645 <= screen.height <= 672){
     containerBotoes.id = 'botoesResponsive';
