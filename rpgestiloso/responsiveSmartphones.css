@@ -33,6 +33,9 @@ button{
   height: 50vh;
 }
 
+#ControleExpansaoHUD{
+  width: 5vw;
+}
 /*Estilização de Classes*/
 .ImagensCenario{
   width: 60vw;

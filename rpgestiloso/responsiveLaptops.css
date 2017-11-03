@@ -22,6 +22,9 @@ button{
   width: 50%;
 }
 
+#ControleExpansaoHUD{
+  width: 2vw;
+}
 /*Estilização de Classes*/
 
 .botoesOpcoesDialogo{

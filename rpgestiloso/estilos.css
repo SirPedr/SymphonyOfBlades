@@ -204,6 +204,38 @@ button:hover{
   transition: 250ms ease-in;
 }
 
+/*Estilização de ID's do HUD*/
+
+#containerHUD{
+  position: absolute;
+  padding: 0.6em;
+  bottom: 0;
+  right: 5vw;
+  /*margin-bottom: -18vh;*/
+  transition: 200ms;
+  text-align: center;
+  z-index: 2;
+}
+
+#ControleExpansaoHUD{
+  margin-top: 0;
+  width: 2vw;
+  cursor: pointer;
+}
+
+#HUDPersonagem{
+  padding: 1em;
+  border: 2px solid black;
+  margin-bottom: -30vh;
+  transition: 350ms ease-out;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#HUDPersonagem > ul{
+  list-style: none;
+  padding-left: 0;
+}
+
 /*Estilização de Classes*/
 
 .controlesImg{
@@ -283,9 +315,9 @@ button:hover{
 
 @keyframes scrollUpHistoria {
     from{
-      transform: translateY(55%);
+      transform: translateY(40vh);
     }
     to{
-      transform: translateY(-105%);
+      transform: translateY(-105vh);
     }
 }
