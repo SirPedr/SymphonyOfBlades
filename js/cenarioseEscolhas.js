@@ -1,7 +1,11 @@
+/*   FUNÇÕES PRIMORDIAIS E
+       MAIS IMPORTANTES      */
+
 function campanha(){
 
   //Struct que define os dados do jogador
   let jogador = {
+    nome: opcoesDeNome.value,
     forca: forcaPersonagem.innerHTML,
     inteligencia: inteligenciaPersonagem.innerHTML,
     agilidade: agilidadePersonagem.innerHTML,
@@ -17,6 +21,9 @@ function campanha(){
   botaoConcluirAvatarEl.remove();
   explicacoesSobreAvatar.remove();
 
+  //Deixa o HUD visível
+  $('#containerHUD').removeClass('invisivel');
+  atualizaHUD(jogador);
   //Chama a função principal, apenas uma única vez
   gerenciaCenarioseOpcoes('tavernaInicial', jogador);
 
@@ -44,6 +51,21 @@ function deletaOpcoesAnteriores(){
     opcaoASerExcluida.remove();
   }
 }
+
+//Função que atualiza o HUD, para que o jogador possa ter controle sobre seu personagem.
+function atualizaHUD(jogador){
+
+  nomeAtual.innerHTML = jogador.nome;
+  forcaAtual.innerHTML = jogador.forca;
+  moedasAtuais.innerHTML = jogador.moedas;
+  InteligenciaAtual.innerHTML = jogador.inteligencia;
+  AgilidadeAtual.innerHTML = jogador.agilidade;
+  CarismaAtual.innerHTML = jogador.carisma;
+  KarmaAtual.innerHTML = jogador.karma;
+
+}
+
+/* FIM DAS FUNÇÕES PRIMORDIAIS */
 
 //Funções que aumentam/diminuem atributos conforme a escolha do jogador
 
@@ -202,8 +224,10 @@ function testeDeAgilidadeTaverna(jogador){
 function testeDeAgilidadeTavernaPart2(jogador){
   if(jogador.agilidade > 3){
     return 'desvioChuteSucesso';
+    console.log('sucesso');
   }else{
     return 'desvioChuteFracasso';
+    console.log('fracasso');
   }
 }
 
@@ -248,7 +272,7 @@ var cenarios = {
 		imagem: 'imgs/Capitulos/cenarioTavernaCap1.jpg',
 		narrativa: 'A taverna está bastante movimentada, com bárbaros jogando cartas em uma mesa, comerciantes contando suas moedas em outra, casais nos fundos, etc. O cheiro é de puro hidromel e rum. Há uma elfa tocando uma música dançante, que atrai a atenção de várias donzelas, bárbaros e outros bardos. O taverneiro, anão, está limpando o balcão.',
 		opcoes: [{
-			texto: 'Pedir uma bebida [10 Moedas]',
+			texto: 'Pedir uma bebida',
 			proxNarrativa: 'dialogoTaverneiro'
 		},{
       texto: 'Ir até o bardo',
@@ -421,7 +445,7 @@ var cenarios = {
     opcoes: [{
       alteracao: diminuiMoedas,
       texto: 'Bom ponto, mas talvez isso possa ajudar. [Entregar 10 Moedas]',
-      proxNarrativa: 'primeiraQuestBardoPart2Alternativa'
+      proxNarrativa: 'primeiraQuestBardoRevelaBoato'
     },{
       texto: 'Veja bem, o botao saberei em qualquer lugar, mas meu nome, só eu conheço. Qual valerá mais? [Carisma]',
       proxNarrativa: testeDeCarisma
@@ -592,7 +616,7 @@ var cenarios = {
     narrativa: 'Você desvia para o lado rapidamente e o soco é em vão. O necromante se assusta, mas, tão rapidamente quanto, pula em sua direção, lhe desferindo um chute bem no peito.',
     opcoes: [{
       texto: '[Desviar do Chute]',
-      proxNarrativa: testeDeAgilidadeTaverna
+      proxNarrativa: testeDeAgilidadeTavernaPart2
     },{
       texto: '[Bloquear o Chute]',
       proxNarrativa: testeDeForcaMaior
@@ -670,6 +694,7 @@ var cenarios = {
   },
 
   morteBardo: {
+    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/DarkAmbientMusic.mp3",
     imagem: ' ',
     narrativa: 'Você acorda, com a visão turva e meio zonzo; não consegue estipular o tempo que ficou inconsciente, mas presume que foi bastante: a taverna agora está completamente destruída: móveis quebrados, sangue no chão e nas paredes, e alguns corpos no chão. Se estes estão mortos, é difícil dizer, mas há um em especial que você reconhece, preso na parede por uma lança negra. Você se aproxima, e, na medida que seus sentidos vão voltando ao normal, você consegue identificar o corpo: uma elfa, de cabelos loiros, com um alaúde quebrado ao lado, com os trajes cheios de sangue; o bardo, lá estava, a beira da morte.',
     opcoes: [{
@@ -712,6 +737,7 @@ var cenarios = {
   },
 
   morteTaverneiro: {
+    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/DarkAmbientMusic.mp3",
     imagem: ' ',
     narrativa: 'Você acorda, com a visão turva e meio zonzo; não consegue estipular o tempo que ficou inconsciente, mas presume que foi bastante: a taverna agora está completamente destruída: móveis quebrados, sangue no chão e nas paredes, e alguns corpos no chão. Se estes estão mortos, é difícil dizer, mas há um em especial que você reconhece, preso na parede por uma lança negra. Quando você se aproxima, você enxerga uma figura com trajes de início brancos, mas que estão agora manchados de sujeira e sangue. Botas esfarrapadas e velhas. Quando sua visão começa a voltar ao normal, você consegue ver o rosto: trata-se de um homem branco, calvo e com uma barba volumosa. O taverneiro ali está, a beira da morte.',
     opcoes: [{
@@ -748,7 +774,6 @@ var cenarios = {
   },
 
   finalCap1Part2Alt: {
-    musica: "https://sirpedr.github.io/ArquivosAuxiliaresSymphony/DarkAmbientMusic.mp3",
     imagem: ' ',
     narrativa: 'Você fica atrás do balcão, uma das poucas coisas que não fora completamente destruída. Pouco tempo depois, você ouve o som de vários passos, que se aproximam mais e mais. Uma multidão de pessoas entram na taverna com espadas, escudos e lanças, e se deparam com toda aquela cena. Não demora muito para que eles comecem a averiguar o lugar. Você tenta permanecer furtivo, mas um camponês armado com uma espada lhe encontra embaixo de uma mesa, e anuncia para todos os outros. Você é feito de refém e posto de joelhos.',
     opcoes: [{
@@ -797,6 +822,9 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
 
   //Remove toda a estrutura do cenário anterior para que o atual possa entrar
   removeElementosAnteriores();
+
+  //Atualiza o HUD do jogador, com os atributos atuais
+  atualizaHUD(jogador);
   //Aplica o 'src' da nova imagem à imagem que aparece ao jogador e a coloca no Container
   $(imagemCenario).attr('src', cenarios[proximoCenario].imagem);
 
@@ -808,10 +836,10 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
   $(musicaDeFundo).attr('src', cenarios[proximoCenario].musica);
   $(musicaDeFundo).attr('volume', 0.65);
 
-  if(tocarMusica === 'false'){
-    musicaDeFundo.pause();
-  }else{
+  if(tocarMusica === true){
     musicaDeFundo.play();
+  }else{
+    musicaDeFundo.pause();
   }
 
 /*  if(645 <= screen.height <= 672){
