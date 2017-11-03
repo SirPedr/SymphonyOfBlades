@@ -423,11 +423,11 @@ var cenarios = {
       texto: 'Bom ponto, mas talvez isso possa ajudar. [Entregar 10 Moedas]',
       proxNarrativa: 'primeiraQuestBardoPart2Alternativa'
     },{
-      texto: 'Faz sentido. Mas o meu nome vale mais do que um simples boato, não é verdade? Não é possível comparar os dois. Posso saber sobre a praga com qualquer um deste lugar, mas o meu nome, você só saberá através de mim. [Carisma]',
+      texto: 'Veja bem, o botao saberei em qualquer lugar, mas meu nome, só eu conheço. Qual valerá mais? [Carisma]',
       proxNarrativa: testeDeCarisma
     },{
       alteracao: mudaNomeConhecido,
-      texto: 'Veja bem, apenas um aventureiro, é o que sou. Caso esta praga que falas se espalhe, toda Hesteren aos poucos ficará sabendo, com ou sem minha intervenção. Não há porque esconder tal lenda de mim, veja bem.',
+      texto: 'Apenas um aventureiro, é o que sou. Toda Hesteren aos poucos ficará sabendo, com ou sem minha intervenção. Não há porque esconder tal lenda de mim, veja bem.',
       proxNarrativa: 'primeiraQuestBardoPart1'
     }]
   },
