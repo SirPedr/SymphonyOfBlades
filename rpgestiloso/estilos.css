@@ -131,23 +131,6 @@ button:hover{
   cursor: pointer;
 }
 
-#comecarJogo{
-  border: 3px solid rgba(0, 0, 0, 0.85);
-  padding: 10px;
-  font-family: 'Didact Gothic', sans-serif;
-  font-weight: bold;
-  background-color: rgba(255,255,255, 0.53);
-  display: block;
-  margin: 0 auto;
-  cursor: pointer;
-  transition: 150ms linear;
-  min-width: 15%;
-  font-size: 1.3em;
-}
-#comecarJogo:hover{
-  min-width: 18%;
-  background-color: rgba(255, 255, 255, 0.35);
-}
 
 #historia-previa{
   width: 50%;
@@ -237,6 +220,26 @@ button:hover{
 }
 
 /*Estilização de Classes*/
+
+.botoesMenuPrincipal{
+  border: 3px solid rgba(0, 0, 0, 0.85);
+  padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: bold;
+  background-color: rgba(255,255,255, 0.53);
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 150ms linear;
+  width: 35vw;
+  font-size: 1.3em;
+  margin-bottom: 1.5vw;
+}
+
+.botoesMenuPrincipal:hover{
+  min-width: 18%;
+  background-color: rgba(255, 255, 255, 0.35);
+}
 
 .controlesImg{
   padding: 0.5em;

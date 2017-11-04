@@ -24,9 +24,6 @@ button{
   font-size: 0.7em;
 }
 
-#comecarJogo{
-  font-size: 1em;
-}
 
 #info{
   width: 70vw;
@@ -47,6 +44,10 @@ button{
 
 .textoNarracoes{
   width: 100vw;
+}
+
+.botoesMenuPrincipal{
+  font-size: 1em;
 }
 
 .botoesOpcoesDialogo{
