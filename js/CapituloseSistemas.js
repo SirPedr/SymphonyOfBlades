@@ -22,6 +22,28 @@ function removeElementosAnteriores(){
   return;
 }
 
+function checkpoint(jogador, cenarioAtual){
+  localStorage.setItem('dadosDoJogador', JSON.stringify(jogador));
+  localStorage.setItem('cenarioAtual', cenarioAtual);
+}
+
+//Função que cria o objeto 'jogador', com todos os dados do jogador a serem usados futuramente.
+function criaObjetoJogador(){
+
+  //Struct que define os dados do jogador
+  let jogador = {
+    nome: opcoesDeNome.value,
+    forca: forcaPersonagem.innerHTML,
+    inteligencia: inteligenciaPersonagem.innerHTML,
+    agilidade: agilidadePersonagem.innerHTML,
+    carisma: carismaPersonagem.innerHTML,
+    karma: 0,
+    moedas: 100
+  }
+
+  return jogador;
+}
+
 //Variáveis para o controle do HUD
 
 let nomeAtual = document.querySelector('#nomeConhecidoJogador'),
