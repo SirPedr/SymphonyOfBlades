@@ -14,6 +14,7 @@ body{
   -webkit-user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
+  font-family: 'Coda', sans-serif;
 }
 
 ul{
@@ -23,7 +24,6 @@ ul{
 
 li{
   list-style: none;
-  font-family: 'Coda', sans-serif;
 }
 
 h2,h1,h4{
@@ -34,6 +34,6 @@ font-family: 'Patua One', sans-serif;
   from{
     transform: translateY(95vh);
   }to{
-    transform: translateY(-150vh);
+    transform: translateY(-200vh);
   }
 }
