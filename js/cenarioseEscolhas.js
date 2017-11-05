@@ -20,7 +20,7 @@ function campanha(){
   atualizaHUD(jogador);
 
   //Chama a função principal, apenas uma única vez
-  gerenciaCenarioseOpcoes('SmyphonyFinalNeutro', jogador);
+  gerenciaCenarioseOpcoes('tavernaInicial', jogador);
 
 }
 
