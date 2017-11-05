@@ -1877,7 +1877,7 @@ var cenarios = {
     }]
   },
 
-  fimDeJogo {
+  fimDeJogo: {
     alteracao: exibeCreditos,
     imagem: '',
     narrativa: ''
