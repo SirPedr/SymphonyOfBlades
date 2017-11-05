@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 1.3em;
+  overflow-y: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+
+ul{
+  padding: 0;
+  animation: scrollCreditos 35s linear forwards;
+}
+
+li{
+  list-style: none;
+  font-family: 'Coda', sans-serif;
+}
+
+h2,h1,h4{
+font-family: 'Patua One', sans-serif;
+}
+
+@keyframes scrollCreditos {
+  from{
+    transform: translateY(95vh);
+  }to{
+    transform: translateY(-150vh);
+  }
+}
