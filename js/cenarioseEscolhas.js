@@ -20,7 +20,7 @@ function campanha(){
   atualizaHUD(jogador);
 
   //Chama a função principal, apenas uma única vez
-  gerenciaCenarioseOpcoes('tavernaInicial', jogador);
+  gerenciaCenarioseOpcoes('fimDeJogo', jogador);
 
 }
 
@@ -1626,10 +1626,10 @@ var cenarios = {
   chuteBaltazharPart2: {
     imagem: 'imgs/Capitulos/Baltazhar.jpg',
     narrativa: '"Você é bom. Confesso que superei suas capacidades.", ele diz. No mesmo instante, ele abre um sorriso no rosto. "Ou talvez não. Sabe, um bom lutador sempre está atento ao ambiente em sua volta..."',
-    opcoes:{
+    opcoes:[{
       texto: '[Continuar]',
       proxNarrativa: 'propostaBaltazhar'
-    }
+    }]
   },
 
   arremessoMestre: {
@@ -1880,7 +1880,10 @@ var cenarios = {
   fimDeJogo: {
     alteracao: exibeCreditos,
     imagem: '',
-    narrativa: ''
+    narrativa: 'Toda a Equipe da Orange Wall agradece seu tempo e dedicação para com o jogo.',
+    opcoes: [{
+      texto: 'Obrigado Por Jogar!'
+    }]
   }
 
 
