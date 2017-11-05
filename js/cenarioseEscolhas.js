@@ -1289,7 +1289,7 @@ var cenarios = {
 
   organizacaoEventoIronWood: {
     alteracao: checkpoint,
-    musica: '',
+    musica: 'http://sirpedr.github.io/ArquivosAuxiliaresSymphony/ArgonCastle.mp3',
     imagem: 'imgs/Capitulos/hallArgonCap2.jpg',
     narrativa: 'Você volta até o castelo do Lorde IronWood. Reunir várias pessoas em um lugar só? Como? Uma festa, talvez? Ou quem sabe um plano de evacuar a cidade? Estes são seus pensamentos enquanto você caminha em encontro a Gregor IronWood, que está com a mesma armadura de ferro, ao lado de vários homens trajados da mesma forma, armados com espadas longas e escudos.',
     opcoes: [{
@@ -1386,7 +1386,8 @@ var cenarios = {
   },
 
   eventoFesta: {
-    imagem: 'eventoFestaCap2.jpg',
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/EventoFestaCap2.mp3',
+    imagem: 'imgs/Capitulos/imgs/Capitulos/eventoFestaCap2.jpg',
     narrativa: 'Chega a hora maracada, e você e IronWood se encontram no castelo. Por incrível que pareça, grande parte da população está festejando; talvez seja bom deixar os problemas de lado um pouco, ou simplesmente afogá-los em hidromel. De qualquer forma, as pessoas dançam, cantam e bebem, despreocupadas. Enquanto isso, você, Gregor IronWood e seus homens fazem a vigilância do lugar, tanto em terra quanto nos telhados. Poderia não ser um problema para o Culto eliminar esses homens, mas ao menos você saberia que ele está ativo.',
     opcoes: [{
       texto: '[Continuar]',
@@ -1395,7 +1396,7 @@ var cenarios = {
   },
 
   eventoFestaPart2: {
-    imagem: 'eventoFestaCap2.jpg',
+    imagem: 'imgs/Capitulos/eventoFestaCap2.jpg',
     narrativa: 'Numa de suas patrulhas, você consegue ver Magnus bebendo com alguns bárbaros e mulheres em volta. Suspeito? Talvez, mas você continua sua patrulha. No teto, você percebe o movimento normal.',
     opcoes: [{
       texto: '[Prosseguir Patrulha]',
@@ -1410,7 +1411,7 @@ var cenarios = {
   },
 
   IronWoodCloneDialogo1: {
-    imagem: 'imgs/Capitulos/lordIronWood.jpg',
+    imagem: 'imgs/Capitulos/lordIronWood.png',
     narrativa: 'Você se aproxima de IronWood, que está estressado, gritando com seus homens. "Precisamos achá-lo já!"',
     opcoes: [{
       texto: 'Lord IronWood, está tudo bem?',
@@ -1422,7 +1423,7 @@ var cenarios = {
   },
 
   IronWoodCloneDialogo2: {
-    imagem: 'imgs/Capitulos/lordIronWood.jpg',
+    imagem: 'imgs/Capitulos/lordIronWood.png',
     narrativa: '"Certo, certo. Continue.", ele diz, sem ao menos te olhar. "Vá averiguar os telhados."',
     opcoes: [{
       texto: 'Se acalme, Gregor. Nós vamos pegá-lo.',
@@ -1434,7 +1435,7 @@ var cenarios = {
   },
 
   eventoEvacuacao: {
-    musica: '',
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/EventoComunicadoEvacuacao.mp3',
     imagem: 'imgs/Capitulos/eventoEvacuacaoComunicadoCap2.jpg',
     narrativa: 'Grande parte da população de Hesteren se reúne, e é orientada pelos guardas de IronWood. Os portões, entretanto, estão fechados, com a desculpa de que precisam de toda a população para começar a evacuação. Você, IronWood e seus homens fazem a guarda do lugar, patrulhando. Não há nada anormal ou incomum no momento.',
     opcoes: [{
@@ -1450,7 +1451,7 @@ var cenarios = {
   },
 
   eventoComunicado: {
-    musica: '',
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/EventoComunicadoEvacuacao.mp3',
     imagem: 'imgs/Capitulos/eventoEvacuacaoComunicadoCap2.jpg',
     narrativa: 'A população toda se reúne perto dos portões de Argon, extremamente preocupada. Iria Lord Gregor IronWood anunciar que a batalha foi perdida? Ou seria somente uma tentativa em vão de tranquilizar a população? De qualquer forma, você segue patrulhando, atento a qualquer movimento suspeito. Por enquanto, a cidade segue calma.',
     opcoes: [{
@@ -1576,6 +1577,30 @@ var cenarios = {
       texto: '[Continuar]',
       proxNarrativa: 'propostaBaltazharAlt'
     }]
+  },
+
+  chuteBaltazhar: {
+    imagem: 'imgs/Capitulos/Baltazhar.jpg',
+    narrativa: 'Ambos dão um salto no mesmo momento, igualmente rápidos. Entretanto, Baltazhar havia subestimedo seu adversário. Você acerta ele com um chute no peito, derrubando-o no ar. Você cai ao lado dele, observando-o, no chão.',
+    opcoes: [{
+      texto: 'Renda-se. Agora',
+      proxNarrativa: 'chuteBaltazharPart2'
+    },{
+      texto: '[Pisar em Baltazhar]',
+      proxNarrativa: 'chuteBaltazharPart2'
+    },{
+      texto: 'Parece que você não é páreo para me alcançar.',
+      proxNarrativa: 'chuteBaltazharPart2'
+    }]
+  },
+
+  chuteBaltazharPart2: {
+    imagem: 'imgs/Capitulos/Baltazhar.jpg',
+    narrativa: '"Você é bom. Confesso que superei suas capacidades.", ele diz. No mesmo instante, ele abre um sorriso no rosto. "Ou talvez não. Sabe, um bom lutador sempre está atento ao ambiente em sua volta..."',
+    opcoes:{
+      texto: '[Continuar]',
+      proxNarrativa: 'propostaBaltazhar'
+    }
   },
 
   arremessoMestre: {
