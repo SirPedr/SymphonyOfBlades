@@ -1291,7 +1291,7 @@ var cenarios = {
 
   intimidacaoMagnusFracasso: {
     imagem: 'imgs/Capitulos/becoArgonCap2.jpg',
-    narrtiva: '"Vê esta adaga? Ela pode parar no seu peito no momento em que eu quiser, e nem preciso estar perto de você. Todos que um dia me enfrentaram se encontram a sete palmos do solo, e eu tenho certeza que você não quer se tornar um deles. Agora, o pagamento, por favor."',
+    narrativa: '"Vê esta adaga? Ela pode parar no seu peito no momento em que eu quiser, e nem preciso estar perto de você. Todos que um dia me enfrentaram se encontram a sete palmos do solo, e eu tenho certeza que você não quer se tornar um deles. Agora, o pagamento, por favor."',
     opcoes: [{
       texto: 'Isso não ficará assim, mago. [60 Moedas]',
       proxNarrativa: 'MagnusInfoPagas'
