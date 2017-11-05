@@ -20,7 +20,7 @@ function campanha(){
   atualizaHUD(jogador);
 
   //Chama a função principal, apenas uma única vez
-  gerenciaCenarioseOpcoes('tavernaInicial', jogador);
+  gerenciaCenarioseOpcoes('SmyphonyFinalNeutro', jogador);
 
 }
 
@@ -73,7 +73,7 @@ function diminuiCarisma(jogador){
 }
 
 function aumentaCarisma(jogador){
-  jogador.carisma += 1;
+  jogador.carisma++;
   if(jogador.carisma > 5){
     jogador.carisma = 5;
   }
@@ -88,7 +88,7 @@ function diminuiKarma(jogador){
 }
 
 function aumentaKarma(jogador){
-  jogador.karma += 1;
+  jogador.karma++;
   return;
 }
 
@@ -122,7 +122,7 @@ function diminuiInteligencia(jogador){
 }
 
 function aumentaInteligencia(jogador){
-  jogador.inteligencia += 1;
+  jogador.inteligencia++;
 
   if(jogador.inteligencia > 5){
     jogador.inteligencia = 5;
@@ -132,7 +132,7 @@ function aumentaInteligencia(jogador){
 }
 
 function aumentaForca(jogador){
-  jogador.forca += 1;
+  jogador.forca++;
   return;
 }
 
@@ -142,14 +142,14 @@ function diminuiForca(jogador){
 }
 
 function aumentaAgilidade(jogador){
-  jogador.agilidade += 1;
+  jogador.agilidade++;
   return;
 }
 
 function aumentaAtributosCombate(jogador){
-  jogador.forca += 1;
-  jogador.agilidade +=1;
-  jogador.inteligencia += 1;
+  jogador.forca++;
+  jogador.agilidade++;
+  jogador.inteligencia++;;
   return;
 }
 //------------------------------------------------------------------
@@ -321,10 +321,39 @@ function qualEvento(jogador){
 }
 
 function testeDestreza(jogador){
-  if(jogador.agiliade > 3){
+  if(jogador.agilidade > 3){
     return 'arremessoMestre';
   }else{
     return 'arremessoFalho';
+  }
+}
+
+function aliouABaltazhar(jogador){
+  jogador.karma -= 2;
+  return;
+}
+
+function testeForcaBaltazharPrimeiroAtq(jogador){
+  if(jogador.forca > 2){
+    return 'bloqueioBaltazharSucedido';
+  }else{
+    return 'bloqueioBaltazharFracasso';
+  }
+}
+
+function testeAgilidadeBaltazharPrimeiroAtq(jogador){
+  if(jogador.agilidade > 3){
+    return 'desvioLaminaBaltazharSucesso';
+  }else{
+    return 'bloqueioBaltazharFracasso';
+  }
+}
+
+function testeDeAgilidadeBaltazharSegundoAtq(jogador){
+  if(jogador.agiliade > 3){
+    return 'contraAtqBaltazharSucedido';
+  }else{
+    return 'contraAtqBaltazharFracasso';
   }
 }
 //Object (struct) que contém todos os cenários possíveis no jogo. Todos são compostos por uma imagem, uma narrativa e 3
@@ -498,7 +527,7 @@ var cenarios = {
     narrativa: 'Muito bem, viajante.Para ser sincera, eu gostaria que este boato fosse só mais uma de minhas canções, mas infelizmente é uma assombrosa realidade: uma praga, algo, ou, na pior das hipóteses, alguém, está atacando esta cidade entre as montanhas, roubando pergaminhos antigos sobre necromancia e sequestrando moradores notórios na região central de Argon. Todos que tentaram investigar acabaram mortos. Toda esta gente que estás vendo aqui agora, dançando e se divertindo, partirá para as outras terras de Hesteren logo pela manhã, incluindo a mim.',
     opcoes: [{
       alteracao: aumentaInteligencia,
-      texto: 'Necromancia? Não há muitos relatos de Necromentes em Hesteren há 5 séculos, pelo menos. Deve valer a pena invstigar, não?',
+      texto: 'Necromancia? Não há muitos relatos de Necromantes em Hesteren há 5 séculos, pelo menos. Deve valer a pena invstigar, não?',
       proxNarrativa: 'primeiraQuestBardoPart2'
     },{
       texto: 'Todos irem embora? De fato, é no mínimo intrigante. Há quanto tempo isso acontece?',
@@ -976,7 +1005,7 @@ var cenarios = {
 
   descobertaSimbolo: {
     imagem: 'imgs/Capitulos/corredorMasmorraCap2.jpg',
-    narrativa: 'Quando você termina de dizer tais palavras, Iron Wood para. Você se vira, e a expressão dele é de puro espanto, talvez medo. "Impossível! O Culto foi dizimado há 5 séculos! Se eles conseguirem o que querem, terão capacidade de passar por cima de toda Hesteren!"',
+    narrativa: 'Quando você termina de dizer tais palavras, Iron Wood para. Você se vira, e a expressão dele é de puro espanto, talvez medo. "Impossível! A arte da Necromancia foi exilada há 5 séculos! Se eles conseguirem o que querem, terão capacidade de passar por cima de toda Hesteren!"',
     opcoes: [{
       texto: 'O que eles querem, afinal?',
       proxNarrativa: 'explicacaoIronWood'
@@ -1081,7 +1110,7 @@ var cenarios = {
 
   IronWoodDescobreSimbolo: {
     imagem:'imgs/Capitulos/lordIronWood.png',
-    narrativa: '"Quando você termina de dizer tais palavras, Iron Wood para, e a expressão dele é de puro espanto, talvez medo. "Impossível! O Culto foi dizimado há 5 séculos! Se eles conseguirem o que querem, terão capacidade de passar por cima de toda Hesteren!"',
+    narrativa: '"Quando você termina de dizer tais palavras, Iron Wood para, e a expressão dele é de puro espanto, talvez medo. "Impossível! A arte da Necromancia foi exilada há 5 séculos! Se eles conseguirem o que querem, terão capacidade de passar por cima de toda Hesteren!"',
     opcoes: [{
       texto: 'Precisaremos agir rápido. Não temos tempo a perder!',
       proxNarrativa: 'despedidaCasteloIronWood'
@@ -1341,7 +1370,7 @@ var cenarios = {
     narrativa: '"Pois bem, viajante. Lhe darei um voto de confiança. De fato, se a população estiver reunida, é provável que nosso alvo também esteja lá. Certo, não vamos demorar muito: acontecerá hoje a noite. Mandarei meus homens fazerem o comunicado para o povo. Quando o sol se por, me encontre aqui; vamos organizar uma emboscada."',
     opcoes: [{
       texto: 'Estarei aqui. Que os deuses o acompanhem. [Pular Para a Festa]',
-      proxNarrativa: 'festaIronWood'
+      proxNarrativa: 'eventoFesta'
     },{
       texto: 'Certo. Isso me dará tempo para me preparar. [Continuar]',
       proxNarrativa: 'preparacaoJogador'
@@ -1354,7 +1383,7 @@ var cenarios = {
     narrativa: '"Evacuar a cidade? Pode fazer sentido. Se parecer que estamos tentando salvar a população, o Culto virá para tentar impedir e nós o emboscamos! É uma boa ideia. Me encontre no portão da cidade quando o sol se por; mandarei meus homens fazerem o comunicado."',
     opcoes: [{
       texto: 'Estarei lá. Que os deuses o acompanhem. [Pular Para a Evacuação]',
-      proxNarrativa: 'evacuacaoIronWood'
+      proxNarrativa: 'eventoEvacuacao'
     },{
       texto: 'Certo. Isso me dará tempo para me preparar. [Continuar]',
       proxNarrativa: 'preparacaoJogador'
@@ -1367,7 +1396,7 @@ var cenarios = {
     narrativa: '"É uma ideia interessante. É muito arriscado deixar a mim e a população expostos desse jeito, mas se traçarmos o plano certo, conseguiremos deter o Culto. Muito bem, me encontre na região central de Argon ao por do sol; mandarei meus homens anunciarem para a população."',
     opcoes: [{
       texto: 'Estarei lá. Que os deuses o acompanhem. [Pular Para o Comunicado]',
-      proxNarrativa: 'comunicadoIronWood'
+      proxNarrativa: 'eventoComunicado'
     },{
       texto: 'Certo. Isso me dará tempo para me preparar. [Continuar]',
       proxNarrativa: 'preparacaoJogador'
@@ -1652,6 +1681,206 @@ var cenarios = {
       texto: '[Golpear Baltazhar]',
       proxNarrativa: 'telhadoCap3Inimigo'
     }]
+  },
+
+  /*       CENÁRIOS E RAMIFICAÇÕES
+               DO CAPÍTULO 3                  */
+
+  telhadoCap3Aliado: {
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/DarkAmbientMusic.mp3',
+    alteracao: checkpoint,
+    imagem: 'imgs/Capitulos/Baltazhar.jpg',
+    narrativa: 'Você segura na mão de Baltazhar, que te levanta e lhe ajuda a ficar de pé. Por um momento, você sente seu corpo ceder, e começa a ver camadas de energia negra passando sobre ele, em todo o lugar. Teria Baltazhar lhe traído? Não. Nos lugares onde a magia de Baltazhar passa, os ferimentos são fechados e as dores cessam. "Fez uma escolha sábia, garoto."',
+    opcoes: [{
+      alteracao: aliouABaltazhar,
+      texto: 'Um bom guerreiro sabe quando parar de lutar.',
+      proxNarrativa: 'telhadoCap3AliadoPart2'
+    },{
+      alteracao: aliouABaltazhar,
+      texto: 'Sou seu aliado agora. O que queres que eu faça?',
+      proxNarrativa: 'telhadoCap3AliadoPart2'
+    },{
+      alteracao: aliouABaltazhar,
+      texto: 'Saiba que não o ajudo porque concordo com teus métodos.',
+      proxNarrativa: 'telhadoCap3AliadoPart2'
+    }]
+  },
+
+  telhadoCap3Inimigo: {
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/BatalhaBaltazhar.mp3',
+    alteracao: checkpoint,
+    imagem: 'imgs/Capitulos/Baltazhar.jpg',
+    narrativa: 'De fato, não valeria a pena. Você desfere nele um soco preciso no rosto, que o faz cambalear para longe, lhe dando tempo para se recuperar. Ele se vira e olha, furioso. "Os séculos se passam e os humanos continuam burros! Até um mero Orc seria mais inteligente!", ele diz, estendo as mãos. Delas, forjam-se duas grandes lâminas de magia negra, semelhantes a cimitarras. Ele sorri. "Encare seu executor, viajante.". Ness emomento, ele avança contra você.',
+    opcoes: [{
+      texto: '[Bloquear O Ataque]',
+      proxNarrativa: testeForcaBaltazharPrimeiroAtq
+    },{
+      texto: '[Desviar do Ataque]',
+      proxNarrativa: testeAgilidadeBaltazharPrimeiroAtq
+    }]
+  },
+
+  telhadoCap3AliadoPart2: {
+    imagem: 'imgs/Capitulos/cenarioTelhadosCap2.jpg',
+    narrativa: '"Muito bem, muito bem. Você fez um grande favor para mim reunindo toda essa gente aqui. Acredite ou não, eu estava até mesmo pensando em--", nesse momento, vocês ouvem passos se aproximando de vocês. Poucos segundos depois, surge um homem, alto, de cabelos e barba grisalhos afetados pelo forte brilho da lua, trajando uma armadura completa de ferro, empunhando uma grande espada de duas mãos. "Não há saída, Baltazhar. Toda minha guarda já está pronta para receber a ordem de atacar. Bom trabalho, viajante."',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'decisaoMatarIronWood'
+    }]
+  },
+
+  decisaoMatarIronWood: {
+    imagem: 'imgs/Capitulos/cenarioTelhadosCap2.jpg',
+    narrativa: '"Gregor IronWood!", grita Baltazhar, rindo."Um rei ganancioso e corruptível como qualquer outro, é o que és. Agora percebo que também é um tolo ingênuo!". IronWood, por um momento, fica confuso: por que o chamaria de ingênuo? Baltazhar se vira para você. "Mate-o."',
+    opcoes: [{
+      texto: '[Matar IronWood]',
+      proxNarrativa: 'matarIronWoodPart1'
+    },{
+      texto: '[Não Matar IronWood]',
+      proxNarrativa: 'naoMatarIronWood'
+    }]
+  },
+
+  matarIronWoodPart1: {
+    imagem: 'imgs/Capitulos/cenarioTelhadosCap2.jpg',
+    narrativa: 'IronWood olha para você. Sua expressão é de pura surpresa, e raiva, talvez. "Você? Como pôde? Tu estavas destinado a acabar com o mal em Argon, e não se juntar a ele!", ele grita; aos poucos, ele começa a se aproximar, empunhando a espada. No mesmo instante, Baltazhar toca o seu antebraço, e este fica coberto por energia negra. "Faça.", diz ele. Gregor IronWood está perto o suficiente para te atacar verticalmente com a espada.',
+    opcoes: [{
+      texto: '[Matar IronWood]',
+      proxNarrativa: 'ironWoodMortoPart1'
+    },{
+      texto: '[Atacar Baltazhar]',
+      proxNarrativa: 'telhadoCap3Inimigo'
+    }]
+  },
+
+  ironWoodMortoPart1: {
+    alteracao: checkpoint,
+    imagem: '',
+    narrativa: 'Com movimentos rápidos que só com a ajuda da magia negra você conseguiria fazer, você para a lâmina de IronWood com uma de suas mãos, e consegue observar sua face de espanto. "Como...Como é possível? Esta lâmina foi forjada pelo melhor ferreiro deste continente!", ele tenta te golpear mais uma vez, mas o resultado é o mesmo. Ainda em choque, ele solta a espada, e tenta se afastar, com passos lentos e curtos. Você se aproxima na mesma velocidade, e olha em seus olhos. ',
+    opcoes: [{
+      alteracao: diminuiKarma,
+      texto: 'Nos vemos no inferno, IronWood.',
+      proxNarrativa: 'ironWoodMortoPart2'
+    },{
+      texto: 'Que os deuses o tenham, IronWood.',
+      proxNarrativa: 'ironWoodMortoPart2'
+    },{
+      texto: 'Argon já estava condenada no momento em que pisei aqui.',
+      proxNarrativa: 'ironWoodMortoPart2'
+    }]
+  },
+
+  ironWoodMortoPart2: {
+    imagem: ' ',
+    narrativa: 'Essas são as últimas palavras que Gregor IronWood ouve antes de ter o torso atravessado por sua mão, completamente rodeada de magia negra, forte o suficiente para barrar a proteção que a armadura de ferro fornecia. Ele não grita, muito menos reage: a morte é instantânea. Você deixa ele cair pelo telhado abaixo, com telhas fracas que desmontam na medida que o Lord passa sobre elas. Ele cai em uma região onde o povo está. No momento da queda, tudo que se ouve são gritos. Baltazhar, perto de você, está rindo, e aplaudindo. "Bravo, bravo! Veja, somo uma boa equipe, afinal.". Você olha para os telhados próximos. Não deveriam haver arqueiros que lhe atacariam caso entrasse em combate com IronWood? Não mais; parece que Baltazhar havia cuidado deles. Ele fica na beira do telhado, observando a multidão desesperada, e os guardas numa tentativa inútil de contê-la.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'SymphonyFinalRuim'
+    }]
+  },
+
+
+  naoMatarIronWood: {
+    musica: 'https://sirpedr.github.io/ArquivosAuxiliaresSymphony/BatalhaBaltazhar.mp3',
+    imagem: 'imgs/Capitulos/cenarioTelhadosCap2.jpg',
+    narrativa: '"Não posso fazer isso", você diz. "Não vale a pena. Esta cidade merece ser salva.". Você diz estas palavras, e IronWood se retrai da posição de combate. Você se afasta de Baltazhar, que está com uma expressão surpresa. Ele ri. "E os humanos, é claro, não perdem a chance de tomar as más decisões! Muito bem, viajante. Encare seu destino.", ele se afasta, e, em suas mãos, são forjdas duas lâminas feitas puramente de energia negra. Ele avança contra você, que está armado com uma adaga. Seria ela forte suficiente para lhe defender?',
+    opcoes: [{
+      texto: '[Bloquear O Ataque]',
+      proxNarrativa: testeForcaBaltazharPrimeiroAtq
+    },{
+      texto: '[Desviar do Ataque]',
+      proxNarrativa: testeAgilidadeBaltazharPrimeiroAtq
+    }]
+  },
+
+  bloqueioBaltazharSucedido: {
+    imagem: '',
+    narrativa: 'Talvez a resposta seja sim. Você, com toda sua força e o auxílio da lâmina, consegue bater de frente com Baltazhar, causando uma colisão. As Lâminas se colidem, e você consegue ver a expressão de ódio no rosto de Baltazhar. Ele se prepara para lhe dar um chute certeiro nas costelas.',
+    opcoes: [{
+      texto: '[Contra Atacar o Chute]',
+      proxNarrativa: testeDeAgilidadeBaltazharSegundoAtq
+    },{
+      texto: '[Parar o Chute]',
+      proxNarrativa: testeDeAgilidadeBaltazharSegundoAtq
+    }]
+  },
+
+  bloqueioBaltazharFracasso: {
+    imagem: '',
+    narrativa: 'A resposta foi não. Você não é capaz de se igualar a Baltazhar naquele momento, e sua lâmina é quebrada com extrema facilidade. Sua próxima visão é Baltazhar cravando suas duas lâminas no seu tórax, causando uma dor insuportável. Entretanto, você não consegue gritar, nem ao menos se mover: talvez ele tenha acertado um ponto crítico que te impeça de falar, ou então o choque é tamanho que não te permite fazer nenhuma ação. No que parecem ser seus últimos momentos, você consegue ver o grande sorriso no rosto de Baltazhar, mas..Ele dura pouco?! Este é substituído rapidamente por uma expressão de medo, susto, talvez. Ele solta as lâminas, e você cai no chão, provocando um aumento repentino da dor. Com a visão escura e embaçada, você consegue ver algo atrás de Baltazhar, alguém: um homem, trajado com uma armadura de ferro completa, com barba e cabelo grisalhos, com uma enorme espada atravessando o peito de seu executor.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'SymphonyFinalNeutro'
+    }]
+  },
+
+  desvioLaminaBaltazharSucesso: {
+    imagem: '',
+    narrativa: 'Você foi mais esperto do que isso: num rápido e ágil movimento, você desvia do caminho que as lâminas de Baltazhar fazem, e tem a chance de flanqueá-lo.',
+    opcoes: [{
+      texto: '[Atacar Baltazhar]',
+      proxNarrativa: 'ataqueFlanco'
+    }]
+  },
+
+  ataqueFlanco: {
+    imagem: '',
+    narrativa: 'Ágil como um pica-pau, você avança na direção de Baltazhar, que ainda está retomando a postura após o ataque mal sucedido; num salto, você foi rápido e forte o suficiente para cravar a adaga no pescoço do necromante, que, no mesmo instante, solta as lâminas de magia negra, que se esvaem junto ao vento. Um final rápido? Talvez, mas o mais seguro, de fato. O corpo de Baltazhar cai, batendo nos fracos e antigos ladrilhos do telhado, que se desprendem e também caem. Você encara o que poderia ser seu executor: está acabado? Sim, por enquanto. Você olha ao redor, e encontra diversos arqueiros recolhendo suas armas; provavelmente estariam prontos para lhe ajudar caso necessário. Poucos segundos depois, você ouve passos, que se aproximam mais e mais. Você se vira, e se vê de frente com Gregor IronWood, que agora, está guardando a espada.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'SymphonyFinalBom'
+    }]
+  },
+
+  contraAtqBaltazharSucedido: {
+    imagem: '',
+    narrativa: 'Você, com uma mão livre, consegue segurar o chute de Baltazhar, e, num movimento rápido e preciso, consegue segurá-lo e jogá-lo para o outro lado. Ele se desequelibra, e fica de joelhos, virado de costas para você.',
+    opcoes: [{
+      texto: '[Atacar Baltazhar]',
+      proxNarrativa: 'ataqueFlanco'
+    }]
+  },
+
+  contraAtqBaltazharFracasso: {
+    imagem: '',
+    narrativa: 'Você tenta, de alguma forma, parar o chute de Baltazhar, mas é em vão: ele acerta suas costelas com extrema precisão, causando uma dor forte o suficiente para que você não tenha mais força suficiente para segurar suas lâminas. Você cai no chão, de joelhos, mas se levanta. Porém, antes que você pudesse fazer qualquer tipo de movimento, você tem a visão de duas lâminas forjadas com pura magia negra atravessarem seu peito. A dor é algo que você nunca sentiu antes, e, mesmo que você queira gritar, você não consegue; talvez tenha sido atingido em ponto anatomicamente crítico que te impedisse de falar? Ou o choque é tamanho que você não consegue esboçar uma reação? Entre tantos pensamentos, você observa com detalhes a face de contentamento de Baltazhar se transformar em surpresa, medo..Desespero, talvez. Ele solta as lâminas, e você consequentemente cai no chão, aumentando a dor. Com a visão escura e embaçada, você vê uma grande lâmina atravessando o peitoral de Baltazhar.',
+    opcoes: [{
+      texto: '[Continuar]',
+      proxNarrativa: 'SymphonyFinalNeutro'
+    }]
+  },
+
+  SymphonyFinalNeutro:  {
+    imagem: '',
+    narrativa: 'Baltazhar, com a lâmina cravada em si, é deixado cair sobre o telhado. Gregor IronWood, levemente sujo de sangue, faz um sinal para que os arqueiros abaixem as armas. Ele se aproxima de você, que mal consegue enxergar o rosto do Lord de Argon. Sua audição tmabém está falha, mas você consegue ouvir o que ele diz. "Nós conseguimos, filho. Nós livramos a cidade de Argon do Culto. Baltazhar está morto, e Hesteren pode viver em paz novamente."',
+    opcoes: [{
+      texto: '[Fim do Capítulo 3]',
+      proxNarrativa: 'fimDeJogo'
+    }]
+  },
+
+  SymphonyFinalRuim: {
+    imagem: ' ',
+    narrativa: 'Você fica ao lado de Baltazhar, observando toda a cidade em caos. Ele se vira para você, e você começa a olhar para ele. "Não é lindo? O soberano deles caiu...Literalmente!", Baltazhar começa a rir. "Mas, mesmo adorando o passado, eu tenho uma relação de amor e ódio com o futuro: ele é completamente imprevisível.", nesse momento, você olha para ele, confuso, e sua última visão é de sua mão lhe atravessando completamente, do mesmo jeito que mataste Gregor IronWood. Você consegue ver perfeitamente a expressão de felicidade de Baltazhar, que simplesmente te joga do telhado, deixando você cair bem próximo de onde caiu o Lorde IronWood. Na queda, sua visão começa a escurecer e a embaçar, juntamente com os outros sentidos. O útlimo som que você ouve é o do seu corpo se chocando contra o chão, indo direto para as sombrias e frias garras da morte.',
+    opcoes: [{
+      texto: '[Fim do Capítulo 3]',
+      proxNarrativa: 'fimDeJogo'
+    }]
+  },
+
+  SymphonyFinalBom: {
+    imagem: '',
+    narrativa: 'IronWood caminha até você. "Está acabado. A ira de Baltazhar sobre a cidade de Argon acabou!", ele abre um sorriso, algo que você nunca viu ele fazer. "Hesteren agora está em tempos de paz novamente!".',
+    opcoes: [{
+      texto: '[Fim do Capítulo 3]',
+      proxNarrativa: 'fimDeJogo'
+    }]
+  },
+
+  fimDeJogo {
+    alteracao: exibeCreditos,
+    imagem: '',
+    narrativa: ''
   }
 
 
@@ -1677,7 +1906,7 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
   $(musicaDeFundo).attr('src', cenarios[proximoCenario].musica);
   $(musicaDeFundo).attr('volume', 0.65);
 
-  if(tocarMusica === true){
+  if(tocarMusica == null || tocarMusica == true){
     musicaDeFundo.play();
   }else{
     musicaDeFundo.pause();
@@ -1705,7 +1934,6 @@ function gerenciaCenarioseOpcoes(proximoCenario, jogador){
       alteracaoAtributosCenario = cenarios[proximoCenario].alteracao;
 
   if(alteracaoAtributosCenario === checkpoint){
-    console.log(proximoCenario);
     alteracaoAtributosCenario = alteracaoAtributosCenario(jogador, proximoCenario);
   }else if(alteracaoAtributosCenario != undefined){
     alteracaoAtributosCenario = alteracaoAtributosCenario(jogador);

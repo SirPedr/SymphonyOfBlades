@@ -198,13 +198,13 @@ opcoesDeClasse.addEventListener('change', function colocaClasse(){
 
   switch (nomeDaClasse) {
 
-    case quaisClasses[0]: mudaAtributos(5, 2, 2, 2);
+    case quaisClasses[0]: mudaAtributos(5, 1, 3, 2);
                           break;
 
-    case quaisClasses[1]: mudaAtributos(1, 5, 2, 3);
+    case quaisClasses[1]: mudaAtributos(1, 5, 3, 2);
                           break;
 
-    case quaisClasses[2]: mudaAtributos(1, 2, 5, 3);
+    case quaisClasses[2]: mudaAtributos(2, 2, 5, 2);
                           break;
 
     case quaisClasses[3]: mudaAtributos(5, 5, 5, 5);

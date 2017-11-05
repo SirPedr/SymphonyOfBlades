@@ -22,6 +22,9 @@ function removeElementosAnteriores(){
   return;
 }
 
+//Função que "salva" o progresso do jogador, guardando em Local Storage os dados
+//do personagem criado e o último cenário em que o checkpoint foi programado.
+
 function checkpoint(jogador, cenarioAtual){
   localStorage.setItem('dadosDoJogador', JSON.stringify(jogador));
   localStorage.setItem('cenarioAtual', cenarioAtual);
@@ -70,3 +73,7 @@ $(devoExpandirHUD).click(function alternaExpansaoHUD(){
  }
 
 })
+
+function exibeCreditos(){
+  location.replace("http://sirpedr.github.io/SymphonyOfBlades/creditos.html");
+}
