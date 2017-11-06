@@ -209,7 +209,7 @@ button:hover{
 #HUDPersonagem{
   padding: 1em;
   border: 2px solid black;
-  margin-bottom: -30vh;
+  margin-bottom: -20vh;
   transition: 350ms ease-out;
   background-color: rgba(0, 0, 0, 0.7);
 }
