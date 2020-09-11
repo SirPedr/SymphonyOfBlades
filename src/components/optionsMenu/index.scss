@@ -1,26 +1,46 @@
 @import "../../sass//variables.scss";
 
-.menu-option {
+.optionsContainer {
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.optionsContainer-option {
   list-style: none;
+  padding: 0;
   p {
     margin: 0;
   }
 }
 
-.menu-option,
-.menu-option--link {
-  color: white;
+.optionsContainer-option,
+.optionsContainer-option--link {
+  margin-bottom: 10px;
+  color: $color-white;
   font-family: $font-SpectralSC;
   font-weight: $font-regular;
-  cursor: pointer;
+  font-size: calc(17px + 0.8vw);
   width: fit-content;
-  width: -moz-;
+  cursor: pointer;
+
+  &:after {
+    display: block;
+    content: ' ';
+    border-bottom: 1px solid $color-white;
+    transform: scaleX(0);
+    transition: transform 150ms linear;
+  }
 
   &:hover {
-    border-bottom: 1px solid white;
+    &:after {
+      transform: scaleX(1);
+    }
   }
 }
 
-.menu-option--link {
+.optionsContainer-option--link {
   text-decoration: none;
 }

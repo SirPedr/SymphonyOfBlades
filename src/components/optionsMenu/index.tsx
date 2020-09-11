@@ -15,19 +15,19 @@ const menuOptions: Array<OptionType> = [
   },
   {
     text: "Continuar"
-  },
+  }
 ];
 
 const OptionsMenu = () => {
   return (
-    <ul>
+    <ul className={styles.optionsContainer}>
       {menuOptions.map((option, index) => {
         const { text, url, onClick } = option;
 
         return (
-          <li className={styles.menuOption} key={index}>
+          <li className={styles.optionsContainerOption} key={index}>
             {url ? (
-              <Link className={styles.menuOptionLink} to={url} onClick={onClick}>
+              <Link className={styles.optionsContainerOptionLink} to={url} onClick={onClick}>
                 {text}
               </Link>
             ) : (
