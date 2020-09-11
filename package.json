@@ -7,10 +7,11 @@
   "private": true,
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
-    "memata": "webpack",
+    "build": "webpack --progress",
     "start": "webpack-dev-server --mode development --progress --watch --config=webpack.config.js"
   },
   "devDependencies": {
@@ -20,8 +21,10 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.3.0",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.4.1",
     "mini-css-extract-plugin": "^0.11.1",
     "prettier": "^2.1.1",

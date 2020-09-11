@@ -1,3 +1,9 @@
-.title {
-    color: red;
-};
+body {
+    margin: 0;
+    background-image: url("../assets//img/background.png");
+    background-size: cover;
+    background-position: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

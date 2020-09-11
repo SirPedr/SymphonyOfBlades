@@ -1,0 +1,26 @@
+@import "../../sass//variables.scss";
+
+.menu-option {
+  list-style: none;
+  p {
+    margin: 0;
+  }
+}
+
+.menu-option,
+.menu-option--link {
+  color: white;
+  font-family: $font-SpectralSC;
+  font-weight: $font-regular;
+  cursor: pointer;
+  width: fit-content;
+  width: -moz-;
+
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
+.menu-option--link {
+  text-decoration: none;
+}

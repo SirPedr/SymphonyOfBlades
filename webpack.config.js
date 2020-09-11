@@ -1,5 +1,4 @@
 const path = require("path");
-// const nodeExternals = require("webpack-node-externals");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -22,7 +21,8 @@ module.exports = {
     new MiniCssExtractPlugin()
   ],
   devServer: {
-      contentBase: path.resolve(__dirname, "./dist")
+      contentBase: path.resolve(__dirname, "./dist"),
+      port: 3000
   },
   module: {
     rules: [
@@ -51,6 +51,10 @@ module.exports = {
           },
          "sass-loader"
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
       }
     ],
   },

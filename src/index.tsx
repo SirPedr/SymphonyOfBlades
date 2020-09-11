@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "./index.scss";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes";
 
-type PropsType = {
-  name: string;
-};
+import "./index.scss";
 
-const App = ({ name }: PropsType) => (
-  <h1>
-    Um salve pro <span className={styles.title}>{name}</span>
-  </h1>
+const App = () => <AppRoutes />;
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-
-ReactDOM.render(<App name="Pedro" />, document.getElementById("root"));
