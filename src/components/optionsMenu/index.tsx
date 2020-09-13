@@ -11,7 +11,7 @@ type OptionType = {
 const menuOptions: Array<OptionType> = [
   {
     text: "Jogar",
-    url: "/about",
+    url: "introduction",
   },
   {
     text: "Continuar"

@@ -1,0 +1,23 @@
+@import "../../sass/variables.scss";
+
+.displayTextContainer {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.displayTextContainer-content {
+  font-family: $font-LligatSlab;
+  font-size: calc(20px + .3vw);
+  color: $color-white;
+  letter-spacing: 1px;
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+.displayTextContainer-continueButton {
+  font-family: $font-SpectralSC;
+  font-size: calc(16px + .3vw);
+  display: block;
+  text-align: right;
+}

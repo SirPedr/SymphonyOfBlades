@@ -1,9 +1,15 @@
 body {
   margin: 0;
-  background-image: url("../assets//img/background.png");
+  background-image: url("../assets/img/background.png");
   background-size: cover;
   background-position: left;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+a,
+a:visited {
+  color: white;
+  text-decoration: none;
 }
