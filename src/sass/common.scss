@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+.hoverableLink {
+  &:after {
+    display: block;
+    content: " ";
+    border-bottom: 1px solid $color-white;
+    transform: scaleX(0);
+    transition: transform 150ms linear;
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.rightAlignedFooter {
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+}

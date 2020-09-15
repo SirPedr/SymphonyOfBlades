@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ContinueButton from "../../components/continueButton";
 
+import commonStyles from "../../sass/common.scss";
 import styles from "./index.scss";
 
 type PropsType = {
@@ -8,7 +9,10 @@ type PropsType = {
   continueButtonLinkURL?: string;
 };
 
-const TextDisplayPage = ({ textsToDisplay, continueButtonLinkURL }: PropsType) => {
+const TextDisplayPage = ({
+  textsToDisplay,
+  continueButtonLinkURL,
+}: PropsType) => {
   return (
     <section className={styles.displayTextContainer}>
       {Array.isArray(textsToDisplay) ? (
@@ -20,9 +24,9 @@ const TextDisplayPage = ({ textsToDisplay, continueButtonLinkURL }: PropsType) =
       ) : (
         <p className={styles.displayTextContainerContent}>{textsToDisplay}</p>
       )}
-      <Link to={continueButtonLinkURL || "/"} className={styles.displayTextContainerContinueButton}>
-        Continuar
-      </Link>
+      <footer className={commonStyles.rightAlignedFooter}>
+        <ContinueButton url={continueButtonLinkURL || "/"} />
+      </footer>
     </section>
   );
 };

@@ -1,0 +1,8 @@
+@import "../../sass/variables.scss";
+
+.continueButton {
+  font-family: $font-SpectralSC;
+  color: $color-white;
+  font-weight: $font-light;
+  font-size: calc(16px + .3vw);
+}
