@@ -1,0 +1,21 @@
+@import "../../sass/variables.scss";
+
+.mainArticleContainer {
+  background-color: rgba(17, 20, 34, 0.9);
+  padding: .5em 1em;
+}
+
+.mainArticleContainer-title {
+  font-family: $font-SpectralSC;
+  font-weight: $font-light;
+  color: $color-white;
+  display: inline-block;
+  margin: 0;
+
+  &:after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid $color-white;
+    width: 110%;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../sass/variables.scss";
+
+.remainingPoints-text {
+  margin: 10px 0;
+  font-family: $font-SpectralSC;
+  font-weight: $font-light;
+  color: $color-white;
+}
+
+.characterCustomizationContainer {
+  width: 600px;
+}
+
+.characterCustomizationContainer-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.contentContainer-info {
+  max-width: 50%;
+  font-family: $font-Trykker;
+  color: $color-white;
+}

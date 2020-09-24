@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import HomePage from "./pages/home";
 import TextDisplayPage from "./pages/textDisplayPage";
-import TextDisplayPage from "./pages/textDisplay";
+import CharacterCustomizationPage from "./pages/characterCustomizationPage";
 
 import DisplayTexts from "./loreContent/displayTexts";
 
@@ -13,8 +13,9 @@ const AppRoutes = () => (
     <Route
       exact
       path="/introduction"
-      render={() => <TextDisplayPage textsToDisplay={DisplayTexts.INTRODUCTION} />}
+      render={() => <TextDisplayPage textsToDisplay={DisplayTexts.INTRODUCTION} continueButtonLinkURL="/character"/>}
     />
+    <Route exact path="/character" component={CharacterCustomizationPage}/>
   </Switch>
 );
 

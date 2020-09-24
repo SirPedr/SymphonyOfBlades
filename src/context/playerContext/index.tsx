@@ -1,10 +1,17 @@
 import React from "react";
 
+export enum AttributesSlugs { 
+  STRENGTH = "strength",
+  DEXTERITY = "dexterity",
+  CHARISMA = "charisma",
+  INTELLIGENCE = "intelligence"
+};
+
 export type PlayerAttributesType = {
-  strength: number;
-  dexterity: number;
-  charisma: number;
-  intelligence: number;
+  [AttributesSlugs.STRENGTH]: number;
+  [AttributesSlugs.DEXTERITY]: number;
+  [AttributesSlugs.INTELLIGENCE]: number;
+  [AttributesSlugs.CHARISMA]: number;
 };
 
 type PlayerContextType = {
