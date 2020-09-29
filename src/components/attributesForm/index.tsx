@@ -74,27 +74,32 @@ const AttributesForm = ({ remainingPoints, setRemainingPoints }: PropsType) => {
   return (
     <form className={style.attributeForm}>
       <fieldset className={style.attributeFormFieldset}>
-        {attributesFormSlugs.map((attribute, index) => {
+        {attributesFormSlugs.map((attribute) => {
           const { slug, labelText } = attribute;
           const inputId = `attributeInput-${slug}`;
 
           return (
-            <label htmlFor={inputId} key={`label-${index}`}>
-              {labelText}:
+            <span
+              key={`input-${slug}-wrapper`}
+              className={`${style.attributeFormInputWrapper}`}
+            >
+              <label
+                htmlFor={inputId}
+                className={`${style.attributeFormLabel}`}
+              >
+                {labelText}:
+              </label>
               <input
                 type={"number"}
-                key={`input-${index}`}
                 min={minimumAttributeValue}
                 max={maximumAttributeValue}
                 name={slug}
                 id={inputId}
-                style={{
-                  display: "inline-block",
-                }}
+                className={style.attributeFormInput}
                 value={chosenAttributes[slug]}
                 onChange={onChange}
               />
-            </label>
+            </span>
           );
         })}
       </fieldset>

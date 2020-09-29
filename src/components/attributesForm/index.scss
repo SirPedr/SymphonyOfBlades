@@ -1,3 +1,7 @@
+@import "../../sass/variables.scss";
+
+$labelWidth: 60%;
+
 .attributeForm {
   margin: 0;
   margin-right: 20px;
@@ -6,4 +10,43 @@
 
 .attributeForm-fieldset {
   display: flex;
+  border: none;
+}
+
+.attributeForm-label {
+  display: inline-block;
+  width: $labelWidth;
+  margin-right: 10px;
+  text-align: right;
+  color: $color-white;
+}
+
+.attributeForm-input,
+.attributeForm-label {
+  font-family: $font-SpectralSC;
+  font-size: 24px;
+}
+
+.attributeForm-input {
+  display: inline-block;
+  width: calc(100% - #{$labelWidth} - 10px);
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $color-white;
+  color: $color-white-disabled-lighter;
+
+  &:focus {
+    color: $color-white;
+  }
+}
+
+.attributeForm-inputWrapper {
+  &:not(:last-of-type)::after {
+    display: block;
+    width: 100%;
+    content: " ";
+    border-bottom: 2px solid $color-ebony-clay;
+    margin: 5px 0;
+  }
 }

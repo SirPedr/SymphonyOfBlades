@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Slab&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Trykker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Spectral+SC:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Port+Lligat+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Trykker&display=swap");
 
 $font-SpectralSC: "Spectral SC", serif;
 $font-LligatSlab: "Port Lligat Slab", serif;
@@ -10,4 +10,6 @@ $font-light: 300;
 $font-regular: 400;
 
 $color-white: white;
-$color-white-disabled: #747474;
+$color-white-disabled-darker: #747474;
+$color-white-disabled-lighter: #c1c1c1;
+$color-ebony-clay: #2a2f45;
