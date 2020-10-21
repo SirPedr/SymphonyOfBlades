@@ -14,7 +14,7 @@ const CharacterCustomizationPage = () => {
     <MainArticle
       title={"Customização de Personagem"}
       continueButton={{
-        url: "/",
+        url: "/history",
         isDisabled: remainingAttributePoints !== 0
       }}
       className={style.characterCustomizationContainer}

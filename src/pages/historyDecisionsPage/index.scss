@@ -1,0 +1,32 @@
+@import "../../sass/variables.scss";
+
+.gameScreen {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.gameScreen-scenarioDescription,
+.gameScreen-decisions {
+  font-family: $font-Trykker;
+  font-weight: $font-light;
+  color: $color-white;
+}
+
+.gameScreen-scenarioDescription {
+  grid-column-start: 1;
+  max-width: 45vw;
+}
+
+.gameScreen-picture {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+@media screen and (max-width: 1160px) {
+  .gameScreen-scenarioDescription {
+    max-width: 55vw;
+  }
+}
