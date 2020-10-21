@@ -7,18 +7,28 @@ import styles from "./index.scss";
 export type PropsType = {
   url: string;
   linkState?: Object;
+  isDisabled?: boolean;
   className?: string;
 };
 
-const ContinueButton = ({ url, linkState, className }: PropsType) => (
-  <Link
-    to={linkState ? { pathname: url, state: linkState } : url}
-    className={`${commonStyles.hoverableLink} ${styles.continueButton} ${
-      className ? className : ""
-    }`}
-  >
-    Continuar
-  </Link>
-);
+const ContinueButton = ({
+  url,
+  linkState,
+  isDisabled,
+  className,
+}: PropsType) => {
+  return isDisabled ? (
+    <span className={`${styles.continueButton} ${styles.continueButtonDisabled}`}>Continuar</span>
+  ) : (
+    <Link
+      to={linkState ? { pathname: url, state: linkState } : url}
+      className={`${commonStyles.hoverableLink} ${styles.continueButton} ${
+        className ? className : ""
+      }`}
+    >
+      Continuar
+    </Link>
+  );
+};
 
 export default ContinueButton;

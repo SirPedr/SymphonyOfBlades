@@ -15,6 +15,7 @@ const CharacterCustomizationPage = () => {
       title={"Customização de Personagem"}
       continueButton={{
         url: "/",
+        isDisabled: remainingAttributePoints !== 0
       }}
       className={style.characterCustomizationContainer}
     >

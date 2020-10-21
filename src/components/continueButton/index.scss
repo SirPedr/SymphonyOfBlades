@@ -6,3 +6,8 @@
   font-weight: $font-light;
   font-size: calc(16px + .3vw);
 }
+
+.continueButton--disabled {
+  color: $color-white-disabled-lighter;
+  cursor: not-allowed;
+}
