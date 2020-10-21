@@ -23,9 +23,25 @@ const HistoryDecisionsPage = () => {
           rutrum ante scelerisque quis. Lorem ipsum dolor sit amet, consectetur
           adipiscing elit. Integer imperdiet erat ac leo vestibulum facilisis.
         </p>
+        <p>
+          Nunc vel rutrum risus, nec lacinia tellus. Integer luctus sed lorem
+          quis lacinia. Praesent non eleifend ante, ut dictum ante. Praesent vel
+          condimentum tortor, ac faucibus felis. In laoreet egestas mauris, at
+          rutrum ante scelerisque quis. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Integer imperdiet erat ac leo vestibulum facilisis.
+        </p>
       </section>
       <picture className={style.gameScreenPicture}>IMAGEM IMAGEM</picture>
-      <section className={style.gameScreenDecisions}>DECISÕES DECISÕES</section>
+      <section className={style.gameScreenDecisions}>
+        {" "}
+        <p>
+          Nunc vel rutrum risus, nec lacinia tellus. Integer luctus sed lorem
+          quis lacinia. Praesent non eleifend ante, ut dictum ante. Praesent vel
+          condimentum tortor, ac faucibus felis. In laoreet egestas mauris, at
+          rutrum ante scelerisque quis. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Integer imperdiet erat ac leo vestibulum facilisis.
+        </p>
+      </section>
     </MainArticle>
   );
 };

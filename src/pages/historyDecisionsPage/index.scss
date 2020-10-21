@@ -9,6 +9,7 @@
 
 .gameScreen-scenarioDescription,
 .gameScreen-decisions {
+  max-width: 45vw;
   font-family: $font-Trykker;
   font-weight: $font-light;
   color: $color-white;
@@ -16,7 +17,9 @@
 
 .gameScreen-scenarioDescription {
   grid-column-start: 1;
-  max-width: 45vw;
+  max-height: 40vh;
+  text-align: justify;
+  overflow-y: auto;
 }
 
 .gameScreen-picture {
@@ -26,7 +29,8 @@
 }
 
 @media screen and (max-width: 1160px) {
-  .gameScreen-scenarioDescription {
+  .gameScreen-scenarioDescription,
+  .gameScreen-decisions {
     max-width: 55vw;
   }
 }
