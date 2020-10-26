@@ -3,6 +3,14 @@ import MainArticle from "../../modules/mainArticle";
 
 import style from "./index.scss";
 
+const optionsListMock = [
+  "Yeah this seem's like a good option",
+  "This one too.",
+  "You think what will follow is anotoher option",
+  "But it's me, Dio!",
+  "Ok now I'm just another option.",
+];
+
 const HistoryDecisionsPage = () => {
   return (
     <MainArticle title={"Capítulo 1"} className={style.gameScreen}>
@@ -33,14 +41,11 @@ const HistoryDecisionsPage = () => {
       </section>
       <picture className={style.gameScreenPicture}>IMAGEM IMAGEM</picture>
       <section className={style.gameScreenDecisions}>
-        {" "}
-        <p>
-          Nunc vel rutrum risus, nec lacinia tellus. Integer luctus sed lorem
-          quis lacinia. Praesent non eleifend ante, ut dictum ante. Praesent vel
-          condimentum tortor, ac faucibus felis. In laoreet egestas mauris, at
-          rutrum ante scelerisque quis. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Integer imperdiet erat ac leo vestibulum facilisis.
-        </p>
+        <ul className={style.gameScreenDecisionsList}>
+          {optionsListMock.map((option) => (
+            <li>{option}</li>
+          ))}
+        </ul>
       </section>
     </MainArticle>
   );

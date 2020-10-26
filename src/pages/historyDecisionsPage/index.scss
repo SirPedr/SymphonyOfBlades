@@ -3,7 +3,7 @@
 .gameScreen {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -15,6 +15,14 @@
   color: $color-white;
 }
 
+.gameScreen-decisions::before {
+  content: "";
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  border-bottom: 1px solid $color-ebony-clay;
+}
+
 .gameScreen-scenarioDescription {
   grid-column-start: 1;
   max-height: 40vh;
@@ -22,10 +30,43 @@
   overflow-y: auto;
 }
 
+.gameScreen-decisions-list {
+  padding-left: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-top: 10px;
+    font-family: $font-SpectralSC;
+    font-size: calc(18px + 0.1vw);
+    color: $color-white-disabled-lighter;
+    transition: 200ms;
+
+    &:hover {
+      color: $color-white;
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 10px;
+      background-image: url("../../../assets/img/arrow_right.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
 .gameScreen-picture {
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 4;
+  background-color: rgba($color-blue-mirage, 0.3);
+  margin: -0.5em -1em -0.5em 20px;
 }
 
 @media screen and (max-width: 1160px) {
