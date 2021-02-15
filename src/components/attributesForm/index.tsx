@@ -1,33 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useRecoilState } from "recoil";
 
-import {
-  AttributesSlugs,
-  PlayerAttributesType,
-} from "../../context/playerContext";
+import { playerAttributesAtom } from "../../recoil/atoms";
+import { AttributesSlugs } from "../../types/player";
 
 import style from "./index.scss";
 
-const attributesFormSlugs: Array<{
-  slug: AttributesSlugs;
-  labelText: string;
-}> = [
-  {
-    slug: AttributesSlugs.STRENGTH,
-    labelText: "Força",
-  },
-  {
-    slug: AttributesSlugs.DEXTERITY,
-    labelText: "Agilidade",
-  },
-  {
-    slug: AttributesSlugs.INTELLIGENCE,
-    labelText: "Inteligência",
-  },
-  {
-    slug: AttributesSlugs.CHARISMA,
-    labelText: "Carisma",
-  },
-];
+const attributesFormLabels: { [index in AttributesSlugs]: string } = {
+  [AttributesSlugs.STRENGTH]: "Força",
+  [AttributesSlugs.DEXTERITY]: "Destreza",
+  [AttributesSlugs.INTELLIGENCE]: "Inteligência",
+  [AttributesSlugs.CHARISMA]: "Carisma",
+};
 
 type PropsType = {
   remainingPoints: number;
@@ -35,20 +19,15 @@ type PropsType = {
 };
 
 const AttributesForm = ({ remainingPoints, setRemainingPoints }: PropsType) => {
-  const [chosenAttributes, setChosenAttributes] = useState<
-    PlayerAttributesType
-  >({
-    strength: 0,
-    dexterity: 0,
-    intelligence: 0,
-    charisma: 0,
-  });
+  const [playerAttributes, setPlayerAttributes] = useRecoilState(
+    playerAttributesAtom
+  );
 
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     const affectedInput = event.currentTarget;
     const inputName = affectedInput.name as AttributesSlugs;
     const newAttributeValue = parseInt(affectedInput.value);
-    const oldAttributeValue = chosenAttributes[inputName];
+    const oldAttributeValue = playerAttributes[inputName];
 
     let newAttributePoints = remainingPoints;
 
@@ -62,11 +41,13 @@ const AttributesForm = ({ remainingPoints, setRemainingPoints }: PropsType) => {
 
     setRemainingPoints(newAttributePoints >= 0 ? newAttributePoints : 0);
 
-    setChosenAttributes({
-      ...chosenAttributes,
+    setPlayerAttributes({
+      ...playerAttributes,
       [inputName]: newAttributeValue,
     });
   };
+
+  useEffect(() => console.log(playerAttributes), [playerAttributes]);
 
   const minimumAttributeValue = 0;
   const maximumAttributeValue = 5;
@@ -74,29 +55,29 @@ const AttributesForm = ({ remainingPoints, setRemainingPoints }: PropsType) => {
   return (
     <form className={style.attributeForm}>
       <fieldset className={style.attributeFormFieldset}>
-        {attributesFormSlugs.map((attribute) => {
-          const { slug, labelText } = attribute;
-          const inputId = `attributeInput-${slug}`;
+        {Object.values(AttributesSlugs).map((attributeSlug) => {
+          const inputLabelText = attributesFormLabels[attributeSlug];
+          const inputId = `attributeInput-${attributeSlug}`;
 
           return (
             <span
-              key={`input-${slug}-wrapper`}
+              key={`input-${attributeSlug}-wrapper`}
               className={`${style.attributeFormInputWrapper}`}
             >
               <label
                 htmlFor={inputId}
                 className={`${style.attributeFormLabel}`}
               >
-                {labelText}:
+                {inputLabelText}:
               </label>
               <input
                 type={"number"}
                 min={minimumAttributeValue}
                 max={maximumAttributeValue}
-                name={slug}
+                name={attributeSlug}
                 id={inputId}
                 className={style.attributeFormInput}
-                value={chosenAttributes[slug]}
+                value={playerAttributes[attributeSlug]}
                 onChange={onChange}
               />
             </span>

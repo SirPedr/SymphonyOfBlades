@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-
+import { RecoilRoot } from "recoil";
 import AppRoutes from "./routes";
-
-import PlayerContextProvider from "./context/playerContext/playerContextProvider";
 
 import "./index.scss";
 
@@ -12,9 +10,10 @@ const App = () => <AppRoutes />;
 
 ReactDOM.render(
   <BrowserRouter>
-    <PlayerContextProvider>
+    <RecoilRoot>
       <App />
-    </PlayerContextProvider>
+    </RecoilRoot>
   </BrowserRouter>,
+
   document.getElementById("root")
 );
